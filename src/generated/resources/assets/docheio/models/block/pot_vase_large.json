@@ -1,0 +1,6 @@
+{
+  "parent": "docheio:block/pot_vase_large",
+  "textures": {
+    "all": "docheio:block/pot_vase_large"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "variants": {
+    "color=black": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=blue": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=brown": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=cyan": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=gray": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=green": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=light_blue": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=light_gray": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=lime": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=magenta": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=normal": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=orange": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=pink": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=purple": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=red": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=white": {
+      "model": "docheio:block/pot_small"
+    },
+    "color=yellow": {
+      "model": "docheio:block/pot_small"
+    }
+  }
+}

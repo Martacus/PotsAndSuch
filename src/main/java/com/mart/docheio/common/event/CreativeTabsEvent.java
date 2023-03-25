@@ -11,12 +11,12 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 
-@Mod.EventBusSubscriber(modid = PotsMod.POTSMOD, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = PotsMod.DOCHEIO, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CreativeTabsEvent {
 
     @SubscribeEvent
     public static void setCTabs(CreativeModeTabEvent.Register event) {
-        event.registerCreativeModeTab(new ResourceLocation(PotsMod.POTSMOD, "pots"),
+        event.registerCreativeModeTab(new ResourceLocation(PotsMod.DOCHEIO, "pots"),
                 builder -> builder.title(Component.literal("Docheio"))
                         .icon(() -> new ItemStack(Items.FLOWER_POT))
                         .displayItems((enabledFlags, output) -> {
@@ -35,4 +35,5 @@ public class CreativeTabsEvent {
                         })
                         .build());
     }
+
 }

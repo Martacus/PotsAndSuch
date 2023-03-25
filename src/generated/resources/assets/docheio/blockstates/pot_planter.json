@@ -1,0 +1,55 @@
+{
+  "variants": {
+    "color=black": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=blue": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=brown": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=cyan": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=gray": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=green": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=light_blue": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=light_gray": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=lime": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=magenta": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=normal": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=orange": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=pink": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=purple": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=red": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=white": {
+      "model": "docheio:block/pot_planter"
+    },
+    "color=yellow": {
+      "model": "docheio:block/pot_planter"
+    }
+  }
+}

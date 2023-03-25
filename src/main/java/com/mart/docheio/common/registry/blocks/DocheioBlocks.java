@@ -11,7 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class DocheioBlocks {
 
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, PotsMod.POTSMOD);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, PotsMod.DOCHEIO);
 
     public static final RegistryObject<Block> POT = BLOCKS.register("pot", () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
     public static final RegistryObject<Block> POT_AMPHORA = BLOCKS.register("pot_amphora", () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));

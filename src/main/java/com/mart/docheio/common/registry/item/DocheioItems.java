@@ -9,7 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class DocheioItems {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, PotsMod.POTSMOD);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, PotsMod.DOCHEIO);
 
     public static final RegistryObject<Item> POT = ITEMS.register("pot", () -> new BlockItem(DocheioBlocks.POT.get(), new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> POT_AMPHORA = ITEMS.register("pot_amphora", () -> new BlockItem(DocheioBlocks.POT_AMPHORA.get(), new Item.Properties().stacksTo(1)));

@@ -1,0 +1,6 @@
+{
+  "parent": "docheio:block/pot_pitcher",
+  "textures": {
+    "all": "docheio:block/pot_pitcher"
+  }
+}

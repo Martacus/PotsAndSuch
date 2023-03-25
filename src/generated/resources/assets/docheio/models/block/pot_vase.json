@@ -1,0 +1,6 @@
+{
+  "parent": "docheio:block/pot_vase",
+  "textures": {
+    "all": "docheio:block/pot_vase"
+  }
+}
