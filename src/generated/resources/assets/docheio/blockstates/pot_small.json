@@ -1,55 +1,55 @@
 {
   "variants": {
     "color=black": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_black"
     },
     "color=blue": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_blue"
     },
     "color=brown": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_brown"
     },
     "color=cyan": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_cyan"
     },
     "color=gray": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_gray"
     },
     "color=green": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_green"
     },
     "color=light_blue": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_light_blue"
     },
     "color=light_gray": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_light_gray"
     },
     "color=lime": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_lime"
     },
     "color=magenta": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_magenta"
     },
     "color=normal": {
       "model": "docheio:block/pot_small"
     },
     "color=orange": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_orange"
     },
     "color=pink": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_pink"
     },
     "color=purple": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_purple"
     },
     "color=red": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_red"
     },
     "color=white": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_white"
     },
     "color=yellow": {
-      "model": "docheio:block/pot_small"
+      "model": "docheio:block/pot_small_yellow"
     }
   }
 }

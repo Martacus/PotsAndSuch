@@ -1,0 +1,6 @@
+{
+  "parent": "docheio:block/templates/pot_jug_large",
+  "textures": {
+    "all": "docheio:block/pot_jug_large_light_blue"
+  }
+}

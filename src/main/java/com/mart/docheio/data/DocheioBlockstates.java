@@ -45,11 +45,14 @@ public class DocheioBlockstates extends BlockStateProvider {
         ResourceLocation top = docheioPath("block/" + name);
 
         getVariantBuilder(blockRegistryObject.get()).forAllStates(s -> {
-//            String type = s.getValue(SpiritTypeRegistry.SPIRIT_TYPE_PROPERTY);
-//            MalumSpiritType spiritType = SpiritTypeRegistry.SPIRITS.get(type);
-            ModelFile pot = models().withExistingParent(name, docheioPath("block/" + name)).texture("all", side);
-//            return ConfiguredModel.builder().modelFile(pole).rotationY(((int) s.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360).build();
-            return ConfiguredModel.builder().modelFile(pot).build();
+            String type = s.getValue(PotBlock.COLOR).getSerializedName();
+            if(!type.equals("normal")){
+                ModelFile pot = models().withExistingParent(name + "_" + type, docheioPath("block/templates/" + name)).texture("all", side + "_" + type);
+                return ConfiguredModel.builder().modelFile(pot).build();
+            } else {
+                ModelFile pot = models().withExistingParent(name, docheioPath("block/templates/" + name)).texture("all", side);
+                return ConfiguredModel.builder().modelFile(pot).build();
+            }
         });
     }
 

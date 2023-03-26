@@ -1,0 +1,6 @@
+{
+  "parent": "docheio:block/templates/pot_flower",
+  "textures": {
+    "all": "docheio:block/pot_flower_yellow"
+  }
+}

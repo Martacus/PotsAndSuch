@@ -1,55 +1,55 @@
 {
   "variants": {
     "color=black": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_black"
     },
     "color=blue": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_blue"
     },
     "color=brown": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_brown"
     },
     "color=cyan": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_cyan"
     },
     "color=gray": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_gray"
     },
     "color=green": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_green"
     },
     "color=light_blue": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_light_blue"
     },
     "color=light_gray": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_light_gray"
     },
     "color=lime": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_lime"
     },
     "color=magenta": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_magenta"
     },
     "color=normal": {
       "model": "docheio:block/pot_vase_large"
     },
     "color=orange": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_orange"
     },
     "color=pink": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_pink"
     },
     "color=purple": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_purple"
     },
     "color=red": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_red"
     },
     "color=white": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_white"
     },
     "color=yellow": {
-      "model": "docheio:block/pot_vase_large"
+      "model": "docheio:block/pot_vase_large_yellow"
     }
   }
 }

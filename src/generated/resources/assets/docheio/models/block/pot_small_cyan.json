@@ -1,0 +1,6 @@
+{
+  "parent": "docheio:block/templates/pot_small",
+  "textures": {
+    "all": "docheio:block/pot_small_cyan"
+  }
+}

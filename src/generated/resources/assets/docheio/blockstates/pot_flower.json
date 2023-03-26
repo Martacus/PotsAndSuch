@@ -1,55 +1,55 @@
 {
   "variants": {
     "color=black": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_black"
     },
     "color=blue": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_blue"
     },
     "color=brown": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_brown"
     },
     "color=cyan": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_cyan"
     },
     "color=gray": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_gray"
     },
     "color=green": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_green"
     },
     "color=light_blue": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_light_blue"
     },
     "color=light_gray": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_light_gray"
     },
     "color=lime": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_lime"
     },
     "color=magenta": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_magenta"
     },
     "color=normal": {
       "model": "docheio:block/pot_flower"
     },
     "color=orange": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_orange"
     },
     "color=pink": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_pink"
     },
     "color=purple": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_purple"
     },
     "color=red": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_red"
     },
     "color=white": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_white"
     },
     "color=yellow": {
-      "model": "docheio:block/pot_flower"
+      "model": "docheio:block/pot_flower_yellow"
     }
   }
 }

@@ -1,55 +1,55 @@
 {
   "variants": {
     "color=black": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_black"
     },
     "color=blue": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_blue"
     },
     "color=brown": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_brown"
     },
     "color=cyan": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_cyan"
     },
     "color=gray": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_gray"
     },
     "color=green": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_green"
     },
     "color=light_blue": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_light_blue"
     },
     "color=light_gray": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_light_gray"
     },
     "color=lime": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_lime"
     },
     "color=magenta": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_magenta"
     },
     "color=normal": {
       "model": "docheio:block/pot_jug"
     },
     "color=orange": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_orange"
     },
     "color=pink": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_pink"
     },
     "color=purple": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_purple"
     },
     "color=red": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_red"
     },
     "color=white": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_white"
     },
     "color=yellow": {
-      "model": "docheio:block/pot_jug"
+      "model": "docheio:block/pot_jug_yellow"
     }
   }
 }

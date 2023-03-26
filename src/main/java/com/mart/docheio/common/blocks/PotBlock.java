@@ -19,5 +19,4 @@ public class PotBlock extends Block {
         super.createBlockStateDefinition(pBuilder.add(COLOR));
     }
 
-
 }
