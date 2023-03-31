@@ -1,0 +1,6 @@
+{
+  "parent": "docheio:block/templates/pot_amphora_upper",
+  "textures": {
+    "all": "docheio:block/pot_amphora_white"
+  }
+}

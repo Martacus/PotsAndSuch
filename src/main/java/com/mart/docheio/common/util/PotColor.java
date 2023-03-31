@@ -36,4 +36,8 @@ public enum PotColor implements StringRepresentable {
     public String getSerializedName() {
         return this.name;
     }
+
+    public int getId() {
+        return id;
+    }
 }

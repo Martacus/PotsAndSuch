@@ -1,22 +1,24 @@
 package com.mart.docheio.common.blocks;
 
-import com.mart.docheio.common.util.PotColor;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+
 
 public class PotBlock extends Block {
 
-    public static final EnumProperty<PotColor> COLOR = EnumProperty.create("color", PotColor.class);
+    protected final VoxelShape SHAPE;
 
-    public PotBlock(Properties pProperties) {
-        super(pProperties);
+    public PotBlock(Properties pProperties, VoxelShape shape) {
+        super(pProperties.noOcclusion());
+        this.SHAPE = shape;
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        super.createBlockStateDefinition(pBuilder.add(COLOR));
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return SHAPE;
     }
-
 }

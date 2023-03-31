@@ -2,6 +2,7 @@ package com.mart.docheio.common.event;
 
 import com.mart.docheio.PotsMod;
 import com.mart.docheio.common.registry.item.DocheioItems;
+import com.mart.docheio.data.DocheioLootTables;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -20,18 +21,19 @@ public class CreativeTabsEvent {
                 builder -> builder.title(Component.literal("Docheio"))
                         .icon(() -> new ItemStack(Items.FLOWER_POT))
                         .displayItems((enabledFlags, output) -> {
-                            output.accept(DocheioItems.POT.get());
-                            output.accept(DocheioItems.POT_AMPHORA.get());
-                            output.accept(DocheioItems.POT_FLOWER.get());
-                            output.accept(DocheioItems.POT_JUG.get());
-                            output.accept(DocheioItems.POT_JUG_LARGE.get());
-                            output.accept(DocheioItems.POT_PITCHER.get());
-                            output.accept(DocheioItems.POT_PLANTER.get());
-                            output.accept(DocheioItems.POT_PLANTER_SMALL.get());
-                            output.accept(DocheioItems.POT_SMALL.get());
-                            output.accept(DocheioItems.POT_TALL.get());
-                            output.accept(DocheioItems.POT_VASE.get());
-                            output.accept(DocheioItems.POT_VASE_LARGE.get());
+                            DocheioItems.POT_MAP.forEach((p, k) -> output.accept(k.get()));
+                            DocheioItems.POT_AMPHORA_MAP.forEach((p, k) -> output.accept(k.get()));
+                            DocheioItems.POT_FLOWER_MAP.forEach((p, k) -> output.accept(k.get()));
+                            DocheioItems.POT_JUG_MAP.forEach((p, k) -> output.accept(k.get()));
+                            DocheioItems.POT_JUG_LARGE_MAP.forEach((p, k) -> output.accept(k.get()));
+                            DocheioItems.POT_PITCHER_MAP.forEach((p, k) -> output.accept(k.get()));
+                            DocheioItems.POT_PLANTER_MAP.forEach((p, k) -> output.accept(k.get()));
+                            DocheioItems.POT_PLANTER_SMALL_MAP.forEach((p, k) -> output.accept(k.get()));
+                            DocheioItems.POT_SMALL_MAP.forEach((p, k) -> output.accept(k.get()));
+                            DocheioItems.POT_TALL_MAP.forEach((p, k) -> output.accept(k.get()));
+                            DocheioItems.POT_VASE_MAP.forEach((p, k) -> output.accept(k.get()));
+                            DocheioItems.POT_VASE_LARGE_MAP.forEach((p, k) -> output.accept(k.get()));
+                            output.accept(DocheioItems.POTTERY_WHEEL.get());
                         })
                         .build());
     }

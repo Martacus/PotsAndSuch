@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "docheio:block/pot_amphora_white_lower"
+    },
+    "half=upper": {
+      "model": "docheio:block/pot_amphora_white_upper"
+    }
+  }
+}
