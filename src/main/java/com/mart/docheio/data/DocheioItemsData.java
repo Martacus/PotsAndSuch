@@ -3,7 +3,7 @@ package com.mart.docheio.data;
 import com.mart.docheio.PotsMod;
 import com.mart.docheio.common.blocks.TallPotBlock;
 import com.mart.docheio.common.util.Util;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -26,7 +26,7 @@ import static com.mart.docheio.data.DocheioBlockstates.replaceAll;
 
 public class DocheioItemsData extends ItemModelProvider {
 
-    public DocheioItemsData(PackOutput output, ExistingFileHelper existingFileHelper) {
+    public DocheioItemsData(DataGenerator output, ExistingFileHelper existingFileHelper) {
         super(output, PotsMod.DOCHEIO, existingFileHelper);
     }
 

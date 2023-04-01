@@ -4,7 +4,6 @@ import com.mart.docheio.common.registry.blocks.BlockRegistry;
 import com.mart.docheio.common.registry.item.DocheioItems;
 import com.mart.docheio.data.DocheioBlockstates;
 import com.mart.docheio.data.DocheioItemsData;
-import com.mart.docheio.data.DocheioLootTables;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -43,9 +42,9 @@ public class PotsMod {
     public static class DataOnly {
         public static void gatherData(GatherDataEvent event) {
             DataGenerator generator = event.getGenerator();
-            generator.addProvider(true, new DocheioBlockstates(generator.getPackOutput(), event.getExistingFileHelper()));
-            generator.addProvider(true, new DocheioItemsData(generator.getPackOutput(), event.getExistingFileHelper()));
-            generator.addProvider(true, new DocheioLootTables(generator.getPackOutput()));
+            generator.addProvider(true, new DocheioBlockstates(generator, event.getExistingFileHelper()));
+            generator.addProvider(true, new DocheioItemsData(generator, event.getExistingFileHelper()));
+            //generator.addProvider(true, new DocheioLootTables(generator));
 
             //BlockTagsProvider provider = new MalumBlockTags(generator, event.getExistingFileHelper());
             //generator.addProvider(new MalumItemModels(generator, event.getExistingFileHelper()));

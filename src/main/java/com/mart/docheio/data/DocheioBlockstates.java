@@ -4,7 +4,7 @@ import com.mart.docheio.PotsMod;
 import com.mart.docheio.common.blocks.PotBlock;
 import com.mart.docheio.common.blocks.PotteryWheelBlock;
 import com.mart.docheio.common.blocks.TallPotBlock;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -24,7 +24,7 @@ import static com.mart.docheio.common.util.Util.takeAll;
 
 public class DocheioBlockstates extends BlockStateProvider {
 
-    public DocheioBlockstates(PackOutput output, ExistingFileHelper exFileHelper) {
+    public DocheioBlockstates(DataGenerator output, ExistingFileHelper exFileHelper) {
         super(output, PotsMod.DOCHEIO, exFileHelper);
 
     }
