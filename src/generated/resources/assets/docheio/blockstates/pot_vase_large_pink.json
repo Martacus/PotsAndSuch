@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
-      "model": "docheio:block/pot_vase_large_pink"
+    "half=lower": {
+      "model": "docheio:block/pot_vase_large_pink_lower"
+    },
+    "half=upper": {
+      "model": "docheio:block/pot_vase_large_pink_upper"
     }
   }
 }

@@ -19,7 +19,7 @@ import javax.annotation.Nonnull;
 import java.util.*;
 
 import static com.mart.docheio.PotsMod.docheioPath;
-import static com.mart.docheio.common.registry.blocks.DocheioBlocks.BLOCKS;
+import static com.mart.docheio.common.registry.blocks.BlockRegistry.BLOCKS;
 import static com.mart.docheio.common.util.Util.takeAll;
 
 public class DocheioBlockstates extends BlockStateProvider {
@@ -52,7 +52,8 @@ public class DocheioBlockstates extends BlockStateProvider {
             templateName = templateName.replace(s, "");
         }
 
-        ModelFile pot = models().withExistingParent(name, docheioPath("block/templates/" + templateName)).texture("all", side);
+        ModelFile pot = models().withExistingParent(name, docheioPath("block/templates/" + templateName))
+                .texture("all", side).texture("particle", side).renderType("translucent");
         getVariantBuilder(blockRegistryObject.get()).partialState().setModels(ConfiguredModel.builder().modelFile(pot).build());
     }
 
@@ -64,7 +65,8 @@ public class DocheioBlockstates extends BlockStateProvider {
 
         getVariantBuilder(blockRegistryObject.get()).forAllStates(s -> {
             String type = s.getValue(TallPotBlock.HALF).getSerializedName();
-            ModelFile model = models().withExistingParent(name + "_" + type, docheioPath("block/templates/" + templateName + "_" + type)).texture("all", side);
+            ModelFile model = models().withExistingParent(name + "_" + type, docheioPath("block/templates/" + templateName + "_" + type))
+                    .texture("all", side).texture("particle", side).renderType("translucent");
             return ConfiguredModel.builder().modelFile(model).build();
         });
     }
@@ -79,11 +81,12 @@ public class DocheioBlockstates extends BlockStateProvider {
                 .texture("west", docheioPath("block/" + name + "/" + name + "_west"))
                 .texture("south", docheioPath("block/" + name + "/" + name + "_south"))
                 .texture("north", docheioPath("block/" + name + "/" + name + "_north"))
+                .texture("particle", docheioPath("block/" + name + "/" + name + "_top"))
                 ;
         getVariantBuilder(blockRegistryObject.get()).partialState().setModels(ConfiguredModel.builder().modelFile(pot).build());
     }
 
-    public static List<String> colors = List.of("_normal", "_black", "_blue", "_brown", "_cyan", "_gray",
+    public static List<String> colors = List.of("_normal", "_black", "_blue", "_brown", "_cyan", "_clay", "_gray",
             "_green", "_light", "_lime", "_magenta", "_orange", "_pink", "_purple", "_red", "_white", "_yellow");
 
     public static String replaceAll(String origin, List<String> collection){

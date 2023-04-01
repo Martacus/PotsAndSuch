@@ -1,6 +1,8 @@
 {
   "parent": "docheio:block/templates/pot_jug",
+  "render_type": "minecraft:translucent",
   "textures": {
-    "all": "docheio:block/pot_jug_gray"
+    "all": "docheio:block/pot_jug_gray",
+    "particle": "docheio:block/pot_jug_gray"
   }
 }

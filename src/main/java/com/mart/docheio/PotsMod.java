@@ -1,6 +1,6 @@
 package com.mart.docheio;
 
-import com.mart.docheio.common.registry.blocks.DocheioBlocks;
+import com.mart.docheio.common.registry.blocks.BlockRegistry;
 import com.mart.docheio.common.registry.item.DocheioItems;
 import com.mart.docheio.data.DocheioBlockstates;
 import com.mart.docheio.data.DocheioItemsData;
@@ -14,7 +14,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import static com.mart.docheio.common.registry.blocks.DocheioBlocks.BLOCKS;
+import static com.mart.docheio.common.registry.blocks.BlockRegistry.BLOCKS;
+import static com.mart.docheio.common.registry.entity.BlockEntityRegistry.BLOCK_ENTITY_TYPES;
 import static com.mart.docheio.common.registry.item.DocheioItems.ITEMS;
 
 @Mod(PotsMod.DOCHEIO)
@@ -25,11 +26,12 @@ public class PotsMod {
     public PotsMod(){
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        DocheioBlocks.createPots();
+        BlockRegistry.createPots();
         DocheioItems.createPots();
 
         BLOCKS.register(modBus);
         ITEMS.register(modBus);
+        BLOCK_ENTITY_TYPES.register(modBus);
 
         modBus.addListener(DataOnly::gatherData);
     }

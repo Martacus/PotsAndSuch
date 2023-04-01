@@ -20,7 +20,8 @@ public enum PotColor implements StringRepresentable {
     GREEN(13, "green"),
     RED(14, "red"),
     BLACK(15, "black"),
-    NORMAL(16, "normal");
+    NORMAL(16, "normal"),
+    CLAY(17, "clay");
 
     private final int id;
     private final String name;

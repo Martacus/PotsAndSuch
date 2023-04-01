@@ -6,6 +6,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -18,16 +19,32 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 
 public class TallPotBlock extends Block {
 
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
+    protected final VoxelShape SHAPE_UPPER;
+    protected final VoxelShape SHAPE_LOWER;
 
-    public TallPotBlock(Properties pProperties) {
+    public TallPotBlock(Properties pProperties, VoxelShape shapeLower, VoxelShape shapeUpper) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER));
+        this.SHAPE_LOWER = shapeLower;
+        this.SHAPE_UPPER = shapeUpper;
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        DoubleBlockHalf doubleblockhalf = pState.getValue(HALF);
+        if(doubleblockhalf == DoubleBlockHalf.LOWER){
+            return SHAPE_LOWER;
+        } else {
+            return SHAPE_UPPER;
+        }
     }
 
     @Override
