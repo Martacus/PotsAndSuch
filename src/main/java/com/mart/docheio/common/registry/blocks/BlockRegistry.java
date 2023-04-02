@@ -1,10 +1,8 @@
 package com.mart.docheio.common.registry.blocks;
 
 import com.mart.docheio.PotsMod;
-import com.mart.docheio.common.blocks.PotBlock;
-import com.mart.docheio.common.blocks.PotEntityBlock;
-import com.mart.docheio.common.blocks.PotteryWheelBlock;
-import com.mart.docheio.common.blocks.TallPotBlock;
+import com.mart.docheio.common.blockentity.PotBlockEntity;
+import com.mart.docheio.common.blocks.*;
 import com.mart.docheio.common.registry.entity.BlockEntityRegistry;
 import com.mart.docheio.common.util.PotColor;
 import net.minecraft.world.level.block.Block;
@@ -14,6 +12,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import team.lodestar.lodestone.systems.block.LodestoneBlockProperties;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,7 +54,7 @@ public class BlockRegistry {
     public static void createPots(){
         Arrays.stream(PotColor.values()).toList().forEach(p -> {
             POT_MAP.put(p, BLOCKS.register("pot_" + p.getSerializedName(),
-                    () -> new PotEntityBlock<>(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_POT).setBlockEntity(BlockEntityRegistry.POT)));
+                    () -> new PotPotBlock( new LodestoneBlockProperties(Material.DECORATION).instabreak().noOcclusion().setCutoutRenderType(), SHAPE_POT).setBlockEntity(BlockEntityRegistry.POT)));
             POT_AMPHORA_MAP.put(p, BLOCKS.register("pot_amphora_" + p.getSerializedName(),
                     () -> new TallPotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_AMPHORA_LOWER, SHAPE_AMPHORA_UPPER)));
             POT_FLOWER_MAP.put(p, BLOCKS.register("pot_flower_" + p.getSerializedName(),

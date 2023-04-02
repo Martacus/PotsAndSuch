@@ -1,3 +1,7 @@
 {
-  "parent": "docheio:block/pot_pitcher_pink"
+  "parent": "docheio:block/templates/pot_pitcher",
+  "textures": {
+    "main": "docheio:block/pot_pitcher_pink",
+    "particle": "docheio:block/pot_pitcher_pink"
+  }
 }

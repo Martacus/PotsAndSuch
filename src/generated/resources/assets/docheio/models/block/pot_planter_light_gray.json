@@ -1,8 +1,8 @@
 {
   "parent": "docheio:block/templates/pot_planter",
-  "render_type": "minecraft:translucent",
+  "render_type": "minecraft:cutout",
   "textures": {
-    "all": "docheio:block/pot_planter_light_gray",
+    "main": "docheio:block/pot_planter_light_gray",
     "particle": "docheio:block/pot_planter_light_gray"
   }
 }

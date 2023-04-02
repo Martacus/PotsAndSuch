@@ -2,7 +2,7 @@
   "parent": "docheio:block/templates/pot_vase_large_upper",
   "render_type": "minecraft:translucent",
   "textures": {
-    "all": "docheio:block/pot_vase_large_black",
+    "main": "docheio:block/pot_vase_large_black",
     "particle": "docheio:block/pot_vase_large_black"
   }
 }

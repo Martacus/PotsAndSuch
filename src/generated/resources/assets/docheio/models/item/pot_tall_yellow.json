@@ -1,3 +1,7 @@
 {
-  "parent": "docheio:block/pot_tall_yellow"
+  "parent": "docheio:block/templates/pot_tall",
+  "textures": {
+    "main": "docheio:block/pot_tall_yellow",
+    "particle": "docheio:block/pot_tall_yellow"
+  }
 }

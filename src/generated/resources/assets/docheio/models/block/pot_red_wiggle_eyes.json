@@ -1,0 +1,10 @@
+{
+  "parent": "docheio:block/templates/pot",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "main": "docheio:block/pot_red",
+    "particle": "docheio:block/pot_red",
+    "pattern_1": "docheio:block/patterns/pot/pot_pattern_eyes",
+    "pattern_2": "docheio:block/patterns/pot/pot_pattern_wiggle"
+  }
+}

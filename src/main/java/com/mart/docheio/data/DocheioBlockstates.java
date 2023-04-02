@@ -2,6 +2,7 @@ package com.mart.docheio.data;
 
 import com.mart.docheio.PotsMod;
 import com.mart.docheio.common.blocks.PotBlock;
+import com.mart.docheio.common.blocks.PotPotBlock;
 import com.mart.docheio.common.blocks.PotteryWheelBlock;
 import com.mart.docheio.common.blocks.TallPotBlock;
 import net.minecraft.data.DataGenerator;
@@ -32,6 +33,7 @@ public class DocheioBlockstates extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         Set<RegistryObject<Block>> blocks = new HashSet<>(BLOCKS.getEntries());
+        takeAll(blocks, b -> b.get() instanceof PotPotBlock).forEach(this::potPatternBlock);
         takeAll(blocks, b -> b.get() instanceof PotBlock).forEach(this::potBlock);
         takeAll(blocks, b -> b.get() instanceof TallPotBlock).forEach(this::tallPotBlock);
         takeAll(blocks, b -> b.get() instanceof PotteryWheelBlock).forEach(this::multipleSideBlock);
@@ -47,14 +49,30 @@ public class DocheioBlockstates extends BlockStateProvider {
         String name = ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath();
 
         ResourceLocation side = docheioPath("block/" + name);
-        String templateName = "" + name;
-        for(String s : colors){
-            templateName = templateName.replace(s, "");
-        }
+        final String templateName = replaceAll(name, colors);
 
         ModelFile pot = models().withExistingParent(name, docheioPath("block/templates/" + templateName))
-                .texture("all", side).texture("particle", side).renderType("translucent");
+                .texture("main", side).texture("particle", side).renderType("cutout");
         getVariantBuilder(blockRegistryObject.get()).partialState().setModels(ConfiguredModel.builder().modelFile(pot).build());
+    }
+
+    public void potPatternBlock(RegistryObject<Block> blockRegistryObject) {
+        String name = ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath();
+
+        ResourceLocation side = docheioPath("block/" + name);
+        final String templateName = replaceAll(name, colors);
+
+        getVariantBuilder(blockRegistryObject.get()).forAllStates(m -> {
+            String type_top = m.getValue(PotPotBlock.TOP_PATTERN).getSerializedName();
+            String type_bottom = m.getValue(PotPotBlock.BOTTOM_PATTERN).getSerializedName();
+
+            ModelFile pot = models().withExistingParent(name + "_" + type_top  + "_" + type_bottom, docheioPath("block/templates/" + templateName))
+            .texture("main", side).texture("particle", side).renderType("translucent")
+                    .texture("pattern_1", docheioPath("block/patterns/pot/pot_pattern_" + type_bottom))
+                    .texture("pattern_2", docheioPath("block/patterns/pot/pot_pattern_" + type_top));
+
+            return ConfiguredModel.builder().modelFile(pot).build();
+        });
     }
 
     public void tallPotBlock(RegistryObject<Block> blockRegistryObject) {
@@ -66,7 +84,7 @@ public class DocheioBlockstates extends BlockStateProvider {
         getVariantBuilder(blockRegistryObject.get()).forAllStates(s -> {
             String type = s.getValue(TallPotBlock.HALF).getSerializedName();
             ModelFile model = models().withExistingParent(name + "_" + type, docheioPath("block/templates/" + templateName + "_" + type))
-                    .texture("all", side).texture("particle", side).renderType("translucent");
+                    .texture("main", side).texture("particle", side).renderType("translucent");
             return ConfiguredModel.builder().modelFile(model).build();
         });
     }

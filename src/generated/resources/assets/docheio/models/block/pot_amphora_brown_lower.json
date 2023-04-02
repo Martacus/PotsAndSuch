@@ -2,7 +2,7 @@
   "parent": "docheio:block/templates/pot_amphora_lower",
   "render_type": "minecraft:translucent",
   "textures": {
-    "all": "docheio:block/pot_amphora_brown",
+    "main": "docheio:block/pot_amphora_brown",
     "particle": "docheio:block/pot_amphora_brown"
   }
 }

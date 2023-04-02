@@ -1,3 +1,7 @@
 {
-  "parent": "docheio:block/pot_planter_small_gray"
+  "parent": "docheio:block/templates/pot_planter_small",
+  "textures": {
+    "main": "docheio:block/pot_planter_small_gray",
+    "particle": "docheio:block/pot_planter_small_gray"
+  }
 }

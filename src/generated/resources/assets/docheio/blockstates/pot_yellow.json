@@ -1,7 +1,79 @@
 {
   "variants": {
-    "": {
-      "model": "docheio:block/pot_yellow"
+    "pot_pattern_bottom=checkers,pot_pattern_top=blocks": {
+      "model": "docheio:block/pot_yellow_blocks_checkers"
+    },
+    "pot_pattern_bottom=checkers,pot_pattern_top=bold": {
+      "model": "docheio:block/pot_yellow_bold_checkers"
+    },
+    "pot_pattern_bottom=checkers,pot_pattern_top=linespeck": {
+      "model": "docheio:block/pot_yellow_linespeck_checkers"
+    },
+    "pot_pattern_bottom=checkers,pot_pattern_top=wiggle": {
+      "model": "docheio:block/pot_yellow_wiggle_checkers"
+    },
+    "pot_pattern_bottom=checkers,pot_pattern_top=zag": {
+      "model": "docheio:block/pot_yellow_zag_checkers"
+    },
+    "pot_pattern_bottom=eyes,pot_pattern_top=blocks": {
+      "model": "docheio:block/pot_yellow_blocks_eyes"
+    },
+    "pot_pattern_bottom=eyes,pot_pattern_top=bold": {
+      "model": "docheio:block/pot_yellow_bold_eyes"
+    },
+    "pot_pattern_bottom=eyes,pot_pattern_top=linespeck": {
+      "model": "docheio:block/pot_yellow_linespeck_eyes"
+    },
+    "pot_pattern_bottom=eyes,pot_pattern_top=wiggle": {
+      "model": "docheio:block/pot_yellow_wiggle_eyes"
+    },
+    "pot_pattern_bottom=eyes,pot_pattern_top=zag": {
+      "model": "docheio:block/pot_yellow_zag_eyes"
+    },
+    "pot_pattern_bottom=inverse_eyes,pot_pattern_top=blocks": {
+      "model": "docheio:block/pot_yellow_blocks_inverse_eyes"
+    },
+    "pot_pattern_bottom=inverse_eyes,pot_pattern_top=bold": {
+      "model": "docheio:block/pot_yellow_bold_inverse_eyes"
+    },
+    "pot_pattern_bottom=inverse_eyes,pot_pattern_top=linespeck": {
+      "model": "docheio:block/pot_yellow_linespeck_inverse_eyes"
+    },
+    "pot_pattern_bottom=inverse_eyes,pot_pattern_top=wiggle": {
+      "model": "docheio:block/pot_yellow_wiggle_inverse_eyes"
+    },
+    "pot_pattern_bottom=inverse_eyes,pot_pattern_top=zag": {
+      "model": "docheio:block/pot_yellow_zag_inverse_eyes"
+    },
+    "pot_pattern_bottom=rim_blocks,pot_pattern_top=blocks": {
+      "model": "docheio:block/pot_yellow_blocks_rim_blocks"
+    },
+    "pot_pattern_bottom=rim_blocks,pot_pattern_top=bold": {
+      "model": "docheio:block/pot_yellow_bold_rim_blocks"
+    },
+    "pot_pattern_bottom=rim_blocks,pot_pattern_top=linespeck": {
+      "model": "docheio:block/pot_yellow_linespeck_rim_blocks"
+    },
+    "pot_pattern_bottom=rim_blocks,pot_pattern_top=wiggle": {
+      "model": "docheio:block/pot_yellow_wiggle_rim_blocks"
+    },
+    "pot_pattern_bottom=rim_blocks,pot_pattern_top=zag": {
+      "model": "docheio:block/pot_yellow_zag_rim_blocks"
+    },
+    "pot_pattern_bottom=rim_specks,pot_pattern_top=blocks": {
+      "model": "docheio:block/pot_yellow_blocks_rim_specks"
+    },
+    "pot_pattern_bottom=rim_specks,pot_pattern_top=bold": {
+      "model": "docheio:block/pot_yellow_bold_rim_specks"
+    },
+    "pot_pattern_bottom=rim_specks,pot_pattern_top=linespeck": {
+      "model": "docheio:block/pot_yellow_linespeck_rim_specks"
+    },
+    "pot_pattern_bottom=rim_specks,pot_pattern_top=wiggle": {
+      "model": "docheio:block/pot_yellow_wiggle_rim_specks"
+    },
+    "pot_pattern_bottom=rim_specks,pot_pattern_top=zag": {
+      "model": "docheio:block/pot_yellow_zag_rim_specks"
     }
   }
 }

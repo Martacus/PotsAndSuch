@@ -1,8 +1,0 @@
-{
-  "parent": "docheio:block/templates/pot",
-  "render_type": "minecraft:translucent",
-  "textures": {
-    "all": "docheio:block/pot_gray",
-    "particle": "docheio:block/pot_gray"
-  }
-}

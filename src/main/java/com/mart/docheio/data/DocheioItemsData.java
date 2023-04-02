@@ -1,6 +1,7 @@
 package com.mart.docheio.data;
 
 import com.mart.docheio.PotsMod;
+import com.mart.docheio.common.blocks.PotBlock;
 import com.mart.docheio.common.blocks.TallPotBlock;
 import com.mart.docheio.common.util.Util;
 import net.minecraft.data.DataGenerator;
@@ -35,6 +36,7 @@ public class DocheioItemsData extends ItemModelProvider {
         Set<RegistryObject<Item>> items = new HashSet<>(ITEMS.getEntries());
         Collection<RegistryObject<Item>> blockItems = new ArrayList<>(takeAll(items, i -> i.get() instanceof BlockItem));
 
+        takeAll(blockItems, i -> ((BlockItem) i.get()).getBlock() instanceof PotBlock).forEach(this::tallBlockItem);
         takeAll(blockItems, i -> ((BlockItem) i.get()).getBlock() instanceof TallPotBlock).forEach(this::tallBlockItem);
         blockItems.forEach(this::blockItem);
     }
@@ -49,7 +51,10 @@ public class DocheioItemsData extends ItemModelProvider {
         final String templateName = replaceAll(name, colors);
 
         ResourceLocation texture = docheioPath("block/" + name);
-        getBuilder(name).parent(new ModelFile.UncheckedModelFile(PotsMod.docheioPath("block/templates/" + templateName))).texture("all", texture);
+        getBuilder(name).parent(new ModelFile.UncheckedModelFile(PotsMod.docheioPath("block/templates/" + templateName)))
+                .texture("main", texture)
+                .texture("particle", texture)
+        ;
 
     }
 

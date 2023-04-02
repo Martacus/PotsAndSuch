@@ -26,7 +26,7 @@ public enum PotColor implements StringRepresentable {
     private final int id;
     private final String name;
 
-    private PotColor(int pId, String name){
+    PotColor(int pId, String name){
         this.id = pId;
         this.name = name;
     }

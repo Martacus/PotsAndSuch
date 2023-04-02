@@ -1,3 +1,7 @@
 {
-  "parent": "docheio:block/pot_jug_pink"
+  "parent": "docheio:block/templates/pot_jug",
+  "textures": {
+    "main": "docheio:block/pot_jug_pink",
+    "particle": "docheio:block/pot_jug_pink"
+  }
 }
