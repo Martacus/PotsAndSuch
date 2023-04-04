@@ -52,7 +52,7 @@ public class DocheioBlockstates extends BlockStateProvider {
         final String templateName = replaceAll(name, colors);
 
         ModelFile pot = models().withExistingParent(name, docheioPath("block/templates/" + templateName))
-                .texture("main", side).texture("particle", side).renderType("cutout");
+                .texture("main", side).texture("particle", side);
         getVariantBuilder(blockRegistryObject.get()).partialState().setModels(ConfiguredModel.builder().modelFile(pot).build());
     }
 
@@ -67,7 +67,7 @@ public class DocheioBlockstates extends BlockStateProvider {
             String type_bottom = m.getValue(PotPotBlock.BOTTOM_PATTERN).getSerializedName();
 
             ModelFile pot = models().withExistingParent(name + "_" + type_top  + "_" + type_bottom, docheioPath("block/templates/" + templateName))
-            .texture("main", side).texture("particle", side).renderType("translucent")
+            .texture("main", side).texture("particle", side)
                     .texture("pattern_1", docheioPath("block/patterns/pot/pot_pattern_" + type_bottom))
                     .texture("pattern_2", docheioPath("block/patterns/pot/pot_pattern_" + type_top));
 
@@ -84,7 +84,7 @@ public class DocheioBlockstates extends BlockStateProvider {
         getVariantBuilder(blockRegistryObject.get()).forAllStates(s -> {
             String type = s.getValue(TallPotBlock.HALF).getSerializedName();
             ModelFile model = models().withExistingParent(name + "_" + type, docheioPath("block/templates/" + templateName + "_" + type))
-                    .texture("main", side).texture("particle", side).renderType("translucent");
+                    .texture("main", side).texture("particle", side);
             return ConfiguredModel.builder().modelFile(model).build();
         });
     }
