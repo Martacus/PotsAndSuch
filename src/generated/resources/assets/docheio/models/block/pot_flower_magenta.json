@@ -1,7 +1,0 @@
-{
-  "parent": "docheio:block/templates/pot_flower",
-  "textures": {
-    "main": "docheio:block/pot_flower_magenta",
-    "particle": "docheio:block/pot_flower_magenta"
-  }
-}

@@ -1,12 +1,6 @@
 {
 	"credit": "Made with Blockbench",
 	"texture_size": [48, 29],
-	"textures": {
-		"pattern_2": "blank",
-		"main": "blank",
-		"particle": "blank",
-		"pattern_1": "blank"
-	},
 	"elements": [
 		{
 			"name": "Box",
@@ -49,8 +43,8 @@
 		},
 		{
 			"name": "Body Pattern",
-			"from": [2.99, -0.01, 2.99],
-			"to": [13.01, 9.01, 13.01],
+			"from": [3, 0, 3],
+			"to": [13, 9, 13],
 			"faces": {
 				"north": {"uv": [3.33333, 5.51724, 6.66667, 10.48276], "texture": "#pattern_1"},
 				"east": {"uv": [0, 5.51724, 3.33333, 10.48276], "texture": "#pattern_1"},
@@ -62,8 +56,8 @@
 		},
 		{
 			"name": "Neck Pattern",
-			"from": [4.99, 8.99, 4.99],
-			"to": [11.01, 11.01, 11.01],
+			"from": [5, 9, 5],
+			"to": [11, 11, 11],
 			"faces": {
 				"north": {"uv": [10, 13.7931, 12, 14.89655], "texture": "#pattern_2"},
 				"east": {"uv": [8, 13.7931, 10, 14.89655], "texture": "#pattern_2"},
@@ -75,8 +69,8 @@
 		},
 		{
 			"name": "Top Pattern",
-			"from": [3.99, 10.99, 3.99],
-			"to": [12.01, 13.01, 12.01],
+			"from": [4, 11, 4],
+			"to": [12, 13, 12],
 			"faces": {
 				"north": {"uv": [2.66667, 14.89655, 5.33333, 16], "texture": "#pattern_2"},
 				"east": {"uv": [0, 14.89655, 2.66667, 16], "texture": "#pattern_2"},

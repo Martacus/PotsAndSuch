@@ -1,7 +1,0 @@
-{
-  "parent": "docheio:block/templates/pot_amphora_lower",
-  "textures": {
-    "main": "docheio:block/pot_amphora_white",
-    "particle": "docheio:block/pot_amphora_white"
-  }
-}

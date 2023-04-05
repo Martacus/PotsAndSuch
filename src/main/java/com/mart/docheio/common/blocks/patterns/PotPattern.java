@@ -5,11 +5,12 @@ import net.minecraft.util.StringRepresentable;
 public class PotPattern {
 
     public enum TOP implements StringRepresentable {
-        WIGGLE(0, "wiggle", "Wiggle"),
-        BOLD(0, "bold", "Bold"),
-        ZAG(0, "zag", "Zag"),
-        LINES(0, "linespeck", "Line Speck"),
-        BLOCKS(0, "blocks", "Blocks");
+        TRANSPARENT(0, "transparent", ""),
+        EYES(1, "eyes", "Eyes"),
+        CHECKERS(2, "checkers", "Checkers"),
+        RIM_BLOCKS(3, "rim_blocks", "Rim Blocks"),
+        INVERSE_EYES(4, "inverse_eyes", "Inverse Eyes"),
+        RIM_SPECKS(5, "rim_specks", "Rim Specks");
 
         private final int id;
         private final String name;
@@ -25,15 +26,27 @@ public class PotPattern {
             this.representName = representName;
         }
 
+        public int getId() {
+            return id;
+        }
 
+        public static TOP getById(int i){
+            for(TOP e : values()){
+                if(i == e.getId()){
+                    return e;
+                }
+            }
+            return TOP.TRANSPARENT;
+        }
     }
 
     public enum BOTTOM implements StringRepresentable {
-        EYES(0, "eyes", "Eyes"),
-        CHECKERS(0, "checkers", "Checkers"),
-        RIM_BLOCKS(0, "rim_blocks", "Rim Blocks"),
-        INVERSE_EYES(0, "inverse_eyes", "Inverse Eyes"),
-        RIM_SPECKS(0, "rim_specks", "Rim Specks");
+        TRANSPARENT(0, "transparent", ""),
+        WIGGLE(1, "wiggle", "Wiggle"),
+        BOLD(2, "bold", "Bold"),
+        ZAG(3, "zag", "Zag"),
+        LINES(4, "linespeck", "Line Speck"),
+        BLOCKS(5, "blocks", "Blocks");
 
 
         private final int id;
@@ -48,6 +61,19 @@ public class PotPattern {
             this.id = id;
             this.name = name;
             this.representName = representName;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public static BOTTOM getById(int i){
+            for(BOTTOM e : values()){
+                if(i == e.getId()){
+                    return e;
+                }
+            }
+            return BOTTOM.TRANSPARENT;
         }
     }
 

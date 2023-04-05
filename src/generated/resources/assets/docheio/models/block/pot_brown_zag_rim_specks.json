@@ -1,9 +1,0 @@
-{
-  "parent": "docheio:block/templates/pot",
-  "textures": {
-    "main": "docheio:block/pot_brown",
-    "particle": "docheio:block/pot_brown",
-    "pattern_1": "docheio:block/patterns/pot/pot_pattern_rim_specks",
-    "pattern_2": "docheio:block/patterns/pot/pot_pattern_zag"
-  }
-}

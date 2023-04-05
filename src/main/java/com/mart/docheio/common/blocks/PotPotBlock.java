@@ -25,7 +25,7 @@ public class PotPotBlock extends PotEntityBlock<PotBlockEntity>{
 
     public PotPotBlock(Properties pProperties, VoxelShape shape) {
         super(pProperties, shape);
-        registerDefaultState(this.getStateDefinition().any().setValue(TOP_PATTERN, PotPattern.TOP.WIGGLE).setValue(BOTTOM_PATTERN, PotPattern.BOTTOM.INVERSE_EYES));
+        registerDefaultState(this.getStateDefinition().any().setValue(TOP_PATTERN, PotPattern.TOP.INVERSE_EYES).setValue(BOTTOM_PATTERN, PotPattern.BOTTOM.WIGGLE));
     }
 
     @Override
@@ -33,6 +33,7 @@ public class PotPotBlock extends PotEntityBlock<PotBlockEntity>{
         pBuilder.add(TOP_PATTERN, BOTTOM_PATTERN);
         //Minecraft.getInstance().getBlockRenderer().getBlockModel()
     }
+
 
     @Nullable
     @Override
@@ -43,8 +44,15 @@ public class PotPotBlock extends PotEntityBlock<PotBlockEntity>{
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        System.out.println(pState.getValue(TOP_PATTERN).getSerializedName());
-        System.out.println(pState.getValue(BOTTOM_PATTERN).getSerializedName());
+        if(pHand == InteractionHand.MAIN_HAND){
+            if(pPlayer.isCrouching()){
+                PotPattern.BOTTOM p = pState.getValue(BOTTOM_PATTERN);
+                pLevel.setBlockAndUpdate(pPos, pState.setValue(BOTTOM_PATTERN, PotPattern.BOTTOM.getById(p.getId() + 1)));
+            } else {
+                PotPattern.TOP p = pState.getValue(TOP_PATTERN);
+                pLevel.setBlockAndUpdate(pPos, pState.setValue(TOP_PATTERN, PotPattern.TOP.getById(p.getId() + 1) ));
+            }
+        }
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
     }
 }

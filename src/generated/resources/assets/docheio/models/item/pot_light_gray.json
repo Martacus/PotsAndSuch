@@ -1,7 +1,0 @@
-{
-  "parent": "docheio:block/templates/pot",
-  "textures": {
-    "main": "docheio:block/pot_light_gray",
-    "particle": "docheio:block/pot_light_gray"
-  }
-}

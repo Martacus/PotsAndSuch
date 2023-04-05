@@ -25,20 +25,7 @@ public class PotEntityRenderer implements BlockEntityRenderer<PotBlockEntity> {
 
     @Override
     public void render(PotBlockEntity pBlockEntity, float pPartialTick, PoseStack poseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
-        BakedModel model = Minecraft.getInstance().getBlockRenderer().getBlockModel(pBlockEntity.getBlockState());
-        for (BakedQuad quad : model.getQuads(pBlockEntity.getBlockState(), null, pBlockEntity.getLevel().random)) {
-            // Check if this is the quad you want to modify.
-            // You can use quad.getSprite() to get the texture of the quad.
-            // If this is the quad you want to modify, create a new BakedQuad with the modified texture.
-            // Otherwise, use the existing quad.
-            //BakedQuad modifiedQuad = /* create a new BakedQuad with the modified texture */;
 
-            // Replace the existing quad with the modified quad in the BakedModel.
-            //model.getQuads(state, null, blockEntity.getWorld().random).remove(quad);
-            //model.getQuads(state, null, blockEntity.getWorld().random).add(modifiedQuad);
-            System.out.println(quad.getSprite());
-            System.out.println(quad.getSprite().getName());
-        }
     }
 
     public void renderQuad(PoseStack poseStack, int pPackedLight) {

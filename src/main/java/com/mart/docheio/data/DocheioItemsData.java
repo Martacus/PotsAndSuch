@@ -3,8 +3,7 @@ package com.mart.docheio.data;
 import com.mart.docheio.PotsMod;
 import com.mart.docheio.common.blocks.PotBlock;
 import com.mart.docheio.common.blocks.PotPotBlock;
-import com.mart.docheio.common.blocks.TallPotBlock;
-import com.mart.docheio.common.util.Util;
+import com.mart.docheio.common.blocks.TwoTallPotBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -39,7 +38,7 @@ public class DocheioItemsData extends ItemModelProvider {
 
         takeAll(blockItems, i -> ((BlockItem) i.get()).getBlock() instanceof PotPotBlock).forEach(this::blockPatternItem);
         takeAll(blockItems, i -> ((BlockItem) i.get()).getBlock() instanceof PotBlock).forEach(this::tallBlockItem);
-        takeAll(blockItems, i -> ((BlockItem) i.get()).getBlock() instanceof TallPotBlock).forEach(this::tallBlockItem);
+        takeAll(blockItems, i -> ((BlockItem) i.get()).getBlock() instanceof TwoTallPotBlock).forEach(this::tallBlockItem);
         blockItems.forEach(this::blockItem);
     }
 
@@ -51,8 +50,13 @@ public class DocheioItemsData extends ItemModelProvider {
 
     private void blockPatternItem(RegistryObject<Item> i) {
         String name = ForgeRegistries.ITEMS.getKey(i.get()).getPath();
+        final String templateName = replaceAll(name, colors);
+
         ResourceLocation blank = docheioPath("block/patterns/transparent");
-        getBuilder(name).parent(new ModelFile.UncheckedModelFile(PotsMod.docheioPath("block/" + name)))
+        ResourceLocation texture = docheioPath("block/" + name);
+        getBuilder(name).parent(new ModelFile.UncheckedModelFile(PotsMod.docheioPath("block/templates/" + templateName)))
+                .texture("main", texture)
+                .texture("particle", texture)
                 .texture("pattern_1", blank)
                 .texture("pattern_2", blank);
     }
