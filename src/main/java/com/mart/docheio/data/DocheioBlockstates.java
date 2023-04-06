@@ -2,6 +2,8 @@ package com.mart.docheio.data;
 
 import com.mart.docheio.PotsMod;
 import com.mart.docheio.common.blocks.*;
+import com.mart.docheio.common.blocks.amphora.PotAmphoraBlock;
+import com.mart.docheio.common.blocks.amphora.PotAmphoraComponentBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -33,6 +35,7 @@ public class DocheioBlockstates extends BlockStateProvider {
         Set<RegistryObject<Block>> blocks = new HashSet<>(BLOCKS.getEntries());
         takeAll(blocks, b -> b.get() instanceof PotPotBlock).forEach(this::potPatternBlock);
         takeAll(blocks, b -> b.get() instanceof PotAmphoraBlock).forEach(this::potAmphoraBlock);
+        takeAll(blocks, b -> b.get() instanceof PotAmphoraComponentBlock).forEach(this::potAmphoraComponentBlock);
         takeAll(blocks, b -> b.get() instanceof PotBlock).forEach(this::potBlock);
         takeAll(blocks, b -> b.get() instanceof TwoTallPotBlock).forEach(this::tallPotBlock);
         takeAll(blocks, b -> b.get() instanceof PotteryWheelBlock).forEach(this::multipleSideBlock);
@@ -84,9 +87,22 @@ public class DocheioBlockstates extends BlockStateProvider {
         final String templateName = replaceAll(name, colors);
 
         getVariantBuilder(blockRegistryObject.get()).forAllStates(s -> {
-            String type = s.getValue(TwoTallPotBlock.HALF).getSerializedName();
             Direction rotation = s.getValue(PotAmphoraBlock.FACING);
-            ModelFile model = models().withExistingParent(name + "_" + type, docheioPath("block/templates/" + templateName + "_" + type))
+            ModelFile model = models().withExistingParent(name, docheioPath("block/templates/" + templateName + "_lower"))
+                    .texture("main", side).texture("particle", side);
+            return ConfiguredModel.builder().modelFile(model).rotationY((int) rotation.toYRot()).build();
+        });
+    }
+
+    public void potAmphoraComponentBlock(RegistryObject<Block> blockRegistryObject) {
+        String name = ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath();
+
+        ResourceLocation side = docheioPath("block/" + name.replace("_component", ""));
+        final String templateName = replaceAll(replaceAll(name, colors), List.of("_component"));
+
+        getVariantBuilder(blockRegistryObject.get()).forAllStates(s -> {
+            Direction rotation = s.getValue(PotAmphoraBlock.FACING);
+            ModelFile model = models().withExistingParent(name, docheioPath("block/templates/" + templateName + "_upper"))
                     .texture("main", side).texture("particle", side);
             return ConfiguredModel.builder().modelFile(model).rotationY((int) rotation.toYRot()).build();
         });

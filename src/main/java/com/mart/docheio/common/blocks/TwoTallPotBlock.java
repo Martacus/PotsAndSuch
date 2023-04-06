@@ -21,10 +21,12 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import team.lodestar.lodestone.systems.block.LodestoneEntityBlock;
+import team.lodestar.lodestone.systems.blockentity.LodestoneBlockEntity;
 
 import javax.annotation.Nullable;
 
-public class TwoTallPotBlock extends Block {
+public class TwoTallPotBlock<T extends LodestoneBlockEntity> extends LodestoneEntityBlock<T> {
 
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
     protected final VoxelShape SHAPE_UPPER;

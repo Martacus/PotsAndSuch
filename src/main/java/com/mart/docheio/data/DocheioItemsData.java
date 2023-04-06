@@ -4,6 +4,7 @@ import com.mart.docheio.PotsMod;
 import com.mart.docheio.common.blocks.PotBlock;
 import com.mart.docheio.common.blocks.PotPotBlock;
 import com.mart.docheio.common.blocks.TwoTallPotBlock;
+import com.mart.docheio.common.blocks.amphora.PotAmphoraBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -38,6 +39,7 @@ public class DocheioItemsData extends ItemModelProvider {
 
         takeAll(blockItems, i -> ((BlockItem) i.get()).getBlock() instanceof PotPotBlock).forEach(this::blockPatternItem);
         takeAll(blockItems, i -> ((BlockItem) i.get()).getBlock() instanceof PotBlock).forEach(this::tallBlockItem);
+        takeAll(blockItems, i -> ((BlockItem) i.get()).getBlock() instanceof PotAmphoraBlock).forEach(this::tallBlockItem);
         takeAll(blockItems, i -> ((BlockItem) i.get()).getBlock() instanceof TwoTallPotBlock).forEach(this::tallBlockItem);
         blockItems.forEach(this::blockItem);
     }

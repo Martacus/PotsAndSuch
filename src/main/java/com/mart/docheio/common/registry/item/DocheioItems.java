@@ -1,6 +1,7 @@
 package com.mart.docheio.common.registry.item;
 
 import com.mart.docheio.PotsMod;
+import com.mart.docheio.common.blockentity.PotAmphoraEntity;
 import com.mart.docheio.common.registry.blocks.BlockRegistry;
 import com.mart.docheio.common.util.PotColor;
 import net.minecraft.world.item.BlockItem;
@@ -8,6 +9,7 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import team.lodestar.lodestone.systems.multiblock.MultiBlockItem;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -31,7 +33,7 @@ public class DocheioItems {
     public static void createPots(){
         Arrays.stream(PotColor.values()).toList().forEach(p -> {
             POT_MAP.put(p, ITEMS.register("pot_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_MAP.get(p).get(), getPotProperty())));
-            POT_AMPHORA_MAP.put(p, ITEMS.register("pot_amphora_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_AMPHORA_MAP.get(p).get(), getPotProperty())));
+            POT_AMPHORA_MAP.put(p, ITEMS.register("pot_amphora_" + p.getSerializedName(), () -> new MultiBlockItem(BlockRegistry.POT_AMPHORA_MAP.get(p).get(), getPotProperty(), PotAmphoraEntity.getItemStructure(p))));
             POT_FLOWER_MAP.put(p, ITEMS.register("pot_flower_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_FLOWER_MAP.get(p).get(), getPotProperty())));
             POT_JUG_MAP.put(p, ITEMS.register("pot_jug_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_JUG_MAP.get(p).get(), getPotProperty())));
             POT_JUG_LARGE_MAP.put(p, ITEMS.register("pot_jug_large_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_JUG_LARGE_MAP.get(p).get(), getPotProperty())));

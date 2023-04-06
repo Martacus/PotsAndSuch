@@ -1,5 +1,10 @@
-package com.mart.docheio.common.blocks;
+package com.mart.docheio.common.blocks.amphora;
 
+import com.mart.docheio.common.blockentity.PotAmphoraEntity;
+import com.mart.docheio.common.blocks.IPotBlock;
+import com.mart.docheio.common.blocks.TwoTallPotBlock;
+import com.mart.docheio.common.registry.entity.BlockEntityRegistry;
+import com.mart.docheio.common.util.PotColor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.LivingEntity;
@@ -14,32 +19,37 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
+import team.lodestar.lodestone.systems.block.LodestoneEntityBlock;
 
-public class PotAmphoraBlock extends TwoTallPotBlock{
+public class PotAmphoraBlock extends LodestoneEntityBlock<PotAmphoraEntity> implements IPotBlock {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    private final PotColor color;
 
-    public PotAmphoraBlock(Properties pProperties, VoxelShape shapeLower, VoxelShape shapeUpper) {
-        super(pProperties, shapeLower, shapeUpper);
-        this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(FACING, Direction.NORTH));
+    public PotAmphoraBlock(Properties properties, PotColor color) {
+        super(properties);
+        this.color = color;
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        super.createBlockStateDefinition(pBuilder);
         pBuilder.add(FACING);
     }
 
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        BlockState s = super.getStateForPlacement(pContext);
-        return s != null ? s.setValue(FACING, pContext.getHorizontalDirection().getOpposite()) : null;
+        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
     }
 
     @Override
-    public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, LivingEntity pPlacer, ItemStack pStack) {
-        super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
+    public PotColor getColor() {
+        return color;
+    }
+
+    @Override
+    public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
+        super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
         pLevel.setBlockAndUpdate(pPos.above(), pLevel.getBlockState(pPos.above()).setValue(FACING, pState.getValue(FACING)));
     }
 }
