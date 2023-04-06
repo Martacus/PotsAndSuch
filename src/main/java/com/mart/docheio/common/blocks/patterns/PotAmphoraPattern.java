@@ -9,7 +9,7 @@ public class PotAmphoraPattern {
         TRANSPARENT(0, "transparent", ""),
         CHEVRON(1, "chevron", "Chevron"),
         NECK_EYES(1, "neck_eyes", "Eyes"),
-        NECK_HIDE(1, "nech_hide", "Hide"),
+        NECK_HIDE(1, "neck_hide", "Hide"),
         NECK_STITCH(1, "neck_stitch", "Stitch"),
         NECK_STRIPES(1, "neck_stripes", "Stripes");
 
@@ -85,7 +85,7 @@ public class PotAmphoraPattern {
         LOW_STRIPES(1, "low_stripes", "Stripes"),
         LOW_WIGGLE(1, "low_wiggle", "Wiggle"),
         LOW_ZAG(1, "wiggle", "Wiggle"),
-        STITCH(1, "wiggle", "Wiggle");
+        STITCH(1, "stitch", "Stitch");
 
 
         private final int id;

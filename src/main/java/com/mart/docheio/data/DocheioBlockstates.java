@@ -34,7 +34,7 @@ public class DocheioBlockstates extends BlockStateProvider {
     protected void registerStatesAndModels() {
         Set<RegistryObject<Block>> blocks = new HashSet<>(BLOCKS.getEntries());
         takeAll(blocks, b -> b.get() instanceof PotPotBlock).forEach(this::potPatternBlock);
-        takeAll(blocks, b -> b.get() instanceof PotAmphoraBlock).forEach(this::potAmphoraBlock);
+        takeAll(blocks, b -> b.get() instanceof PotAmphoraBlock).forEach(this::potAmphoraPatternBlock);
         takeAll(blocks, b -> b.get() instanceof PotAmphoraComponentBlock).forEach(this::potAmphoraComponentBlock);
         takeAll(blocks, b -> b.get() instanceof PotBlock).forEach(this::potBlock);
         takeAll(blocks, b -> b.get() instanceof TwoTallPotBlock).forEach(this::tallPotBlock);
@@ -91,6 +91,31 @@ public class DocheioBlockstates extends BlockStateProvider {
             ModelFile model = models().withExistingParent(name, docheioPath("block/templates/" + templateName + "_lower"))
                     .texture("main", side).texture("particle", side);
             return ConfiguredModel.builder().modelFile(model).rotationY((int) rotation.toYRot()).build();
+        });
+    }
+
+    public void potAmphoraPatternBlock(RegistryObject<Block> blockRegistryObject) {
+        String name = ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath();
+
+        ResourceLocation side = docheioPath("block/" + name);
+        final String templateName = replaceAll(name, colors);
+
+        getVariantBuilder(blockRegistryObject.get()).forAllStates(m -> {
+            String type_top = m.getValue(PotAmphoraBlock.TOP_PATTERN).getSerializedName();
+            String type_middle = m.getValue(PotAmphoraBlock.MIDDLE_PATTERN).getSerializedName();
+            String type_bottom = m.getValue(PotAmphoraBlock.BOTTOM_PATTERN).getSerializedName();
+
+            ResourceLocation top = type_top.equals("transparent") ? docheioPath("block/patterns/transparent") : docheioPath("block/patterns/pot_amphora/pot_amphora_pattern_" + type_top);
+            ResourceLocation middle = type_middle.equals("transparent") ? docheioPath("block/patterns/transparent") : docheioPath("block/patterns/pot_amphora/pot_amphora_pattern_" + type_middle);
+            ResourceLocation bottom = type_bottom.equals("transparent") ? docheioPath("block/patterns/transparent") : docheioPath("block/patterns/pot_amphora/pot_amphora_pattern_" + type_bottom);
+
+            ModelFile pot = models().withExistingParent(name + "_" + type_top  + "_" + type_bottom, docheioPath("block/templates/" + templateName)).renderType("cutout_mipped")
+                    .texture("main", side).texture("particle", side)
+                    .texture("pattern_1", bottom)
+                    .texture("pattern_2", middle)
+                    .texture("pattern_3", top);
+
+            return ConfiguredModel.builder().modelFile(pot).build();
         });
     }
 

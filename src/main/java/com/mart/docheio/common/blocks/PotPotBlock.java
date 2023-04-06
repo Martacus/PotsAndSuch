@@ -25,7 +25,7 @@ public class PotPotBlock extends PotEntityBlock<PotBlockEntity>{
 
     public PotPotBlock(Properties pProperties, VoxelShape shape) {
         super(pProperties, shape);
-        registerDefaultState(this.getStateDefinition().any().setValue(TOP_PATTERN, PotPattern.TOP.INVERSE_EYES).setValue(BOTTOM_PATTERN, PotPattern.BOTTOM.WIGGLE));
+        registerDefaultState(this.getStateDefinition().any().setValue(TOP_PATTERN, PotPattern.TOP.TRANSPARENT).setValue(BOTTOM_PATTERN, PotPattern.BOTTOM.TRANSPARENT));
     }
 
     @Override
@@ -38,7 +38,6 @@ public class PotPotBlock extends PotEntityBlock<PotBlockEntity>{
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        System.out.println(this.defaultBlockState());
         return super.getStateForPlacement(pContext);
     }
 
