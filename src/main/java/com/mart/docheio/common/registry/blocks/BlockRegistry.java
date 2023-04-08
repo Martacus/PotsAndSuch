@@ -59,9 +59,9 @@ public class BlockRegistry {
             POT_MAP.put(p, BLOCKS.register("pot_" + p.getSerializedName(),
                     () -> new PotPotBlock(POT_PROPERTIES, SHAPE_POT).setBlockEntity(BlockEntityRegistry.POT)));
             POT_AMPHORA_MAP.put(p, BLOCKS.register("pot_amphora_" + p.getSerializedName(),
-                    () -> new PotAmphoraBlock(POT_PROPERTIES, p).setBlockEntity(BlockEntityRegistry.POT_AMPHORA)));
+                    () -> new PotAmphoraBlock(POT_PROPERTIES, p, SHAPE_AMPHORA_LOWER).setBlockEntity(BlockEntityRegistry.POT_AMPHORA)));
             POT_AMPHORA_UPPER_MAP.put(p, BLOCKS.register("pot_amphora_component_" + p.getSerializedName(),
-                    () -> new PotAmphoraComponentBlock(POT_PROPERTIES)));
+                    () -> new PotAmphoraComponentBlock(POT_PROPERTIES, SHAPE_AMPHORA_UPPER)));
             POT_FLOWER_MAP.put(p, BLOCKS.register("pot_flower_" + p.getSerializedName(),
                     () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_FLOWER)));
             POT_JUG_MAP.put(p, BLOCKS.register("pot_jug_" + p.getSerializedName(),

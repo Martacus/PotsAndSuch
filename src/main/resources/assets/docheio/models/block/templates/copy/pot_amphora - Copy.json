@@ -1,6 +1,9 @@
 {
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 37],
+	"textures": {
+		"main": "blank"
+	},
 	"elements": [
 		{
 			"name": "Box",

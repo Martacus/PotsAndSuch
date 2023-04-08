@@ -8,10 +8,10 @@ public class PotAmphoraPattern {
     public enum TOP implements StringRepresentable {
         TRANSPARENT(0, "transparent", ""),
         CHEVRON(1, "chevron", "Chevron"),
-        NECK_EYES(1, "neck_eyes", "Eyes"),
-        NECK_HIDE(1, "neck_hide", "Hide"),
-        NECK_STITCH(1, "neck_stitch", "Stitch"),
-        NECK_STRIPES(1, "neck_stripes", "Stripes");
+        NECK_EYES(2, "neck_eyes", "Eyes"),
+        NECK_HIDE(3, "neck_hide", "Hide"),
+        NECK_STITCH(4, "neck_stitch", "Stitch"),
+        NECK_STRIPES(5, "neck_stripes", "Stripes");
 
         private final int id;
         private final String name;
@@ -46,9 +46,9 @@ public class PotAmphoraPattern {
         TRANSPARENT(0, "transparent", ""),
         EYES(1, "eyes", "Eyes"),
         HIDE(2, "hide", "Hide"),
-        STRIPE(2, "stripe", "Stripe"),
-        WIGGLE(2, "wiggle", "Wiggle"),
-        ZAG(2, "zag", "Zag");
+        STRIPE(3, "stripe", "Stripe"),
+        WIGGLE(4, "wiggle", "Wiggle"),
+        ZAG(5, "zag", "Zag");
 
         private final int id;
         private final String name;
@@ -82,10 +82,10 @@ public class PotAmphoraPattern {
     public enum BOTTOM implements StringRepresentable {
         TRANSPARENT(0, "transparent", ""),
         LOW_EYES(1, "low_eyes", "Eyes"),
-        LOW_STRIPES(1, "low_stripes", "Stripes"),
-        LOW_WIGGLE(1, "low_wiggle", "Wiggle"),
-        LOW_ZAG(1, "wiggle", "Wiggle"),
-        STITCH(1, "stitch", "Stitch");
+        LOW_STRIPES(2, "low_stripes", "Stripes"),
+        LOW_WIGGLE(3, "low_wiggle", "Wiggle"),
+        LOW_ZAG(4, "low_zag", "Zag"),
+        STITCH(5, "stitch", "Stitch");
 
 
         private final int id;

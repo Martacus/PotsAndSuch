@@ -1,0 +1,77 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 37],
+	"textures": {
+		"pattern_2": "docheio:block/patterns/pot_amphora/pot_amphora_pattern_low_eyes",
+		"particle": "docheio:block/patterns/pot_amphora/pot_amphora_pattern_hide",
+		"pattern_3": "docheio:block/patterns/pot_amphora/pot_amphora_pattern_hide"
+	},
+	"elements": [
+		{
+			"name": "Main Box",
+			"from": [3, 9, 3],
+			"to": [13, 15, 13],
+			"faces": {
+				"north": {"uv": [2.5, 4.32432, 5, 6.91891], "texture": "#pattern_2"},
+				"east": {"uv": [0, 4.32432, 2.5, 6.91891], "texture": "#pattern_2"},
+				"south": {"uv": [7.5, 4.32432, 10, 6.91891], "texture": "#pattern_2"},
+				"west": {"uv": [5, 4.32432, 7.5, 6.91891], "texture": "#pattern_2"},
+				"up": {"uv": [5, 0, 2.5, 4.32432], "texture": "#pattern_2"},
+				"down": {"uv": [7.5, 0, 5, 4.32432], "texture": "#pattern_2"}
+			}
+		},
+		{
+			"name": "Main neck bottom",
+			"from": [5, 15, 5],
+			"to": [11, 16, 11],
+			"faces": {
+				"north": {"uv": [11.5, 11.24324, 13, 11.67568], "texture": "#pattern_3"},
+				"east": {"uv": [10, 11.24324, 11.5, 11.67568], "texture": "#pattern_3"},
+				"south": {"uv": [14.5, 11.24324, 16, 11.67568], "texture": "#pattern_3"},
+				"west": {"uv": [13, 11.24324, 14.5, 11.67568], "texture": "#pattern_3"},
+				"up": {"uv": [13, 6.91892, 11.5, 4.32432], "texture": "#pattern_3"},
+				"down": {"uv": [14.5, 4.32432, 13, 6.91892], "texture": "#pattern_3"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 225, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [0, -2.5, 0],
+			"scale": [0.47, 0.47, 0.47]
+		},
+		"fixed": {
+			"scale": [0.5, 0.5, 0.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "Patterns",
+			"origin": [0, 17, 0],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}
