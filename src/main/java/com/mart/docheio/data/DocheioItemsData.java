@@ -2,7 +2,7 @@ package com.mart.docheio.data;
 
 import com.mart.docheio.PotsMod;
 import com.mart.docheio.common.blocks.PotBlock;
-import com.mart.docheio.common.blocks.PotPotBlock;
+import com.mart.docheio.common.blocks.pot.PotPotBlock;
 import com.mart.docheio.common.blocks.TwoTallPotBlock;
 import com.mart.docheio.common.blocks.amphora.PotAmphoraBlock;
 import net.minecraft.data.DataGenerator;

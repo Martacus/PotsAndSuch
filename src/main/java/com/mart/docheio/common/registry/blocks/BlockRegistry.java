@@ -4,6 +4,8 @@ import com.mart.docheio.PotsMod;
 import com.mart.docheio.common.blocks.*;
 import com.mart.docheio.common.blocks.amphora.PotAmphoraBlock;
 import com.mart.docheio.common.blocks.amphora.PotAmphoraComponentBlock;
+import com.mart.docheio.common.blocks.flower.PotFlowerBlock;
+import com.mart.docheio.common.blocks.pot.PotPotBlock;
 import com.mart.docheio.common.registry.entity.BlockEntityRegistry;
 import com.mart.docheio.common.util.PotColor;
 import net.minecraft.world.level.block.Block;
@@ -57,13 +59,13 @@ public class BlockRegistry {
     public static void createPots(){
         Arrays.stream(PotColor.values()).toList().forEach(p -> {
             POT_MAP.put(p, BLOCKS.register("pot_" + p.getSerializedName(),
-                    () -> new PotPotBlock(POT_PROPERTIES, SHAPE_POT).setBlockEntity(BlockEntityRegistry.POT)));
+                    () -> new PotPotBlock(POT_PROPERTIES, SHAPE_POT)));
             POT_AMPHORA_MAP.put(p, BLOCKS.register("pot_amphora_" + p.getSerializedName(),
                     () -> new PotAmphoraBlock(POT_PROPERTIES, p, SHAPE_AMPHORA_LOWER).setBlockEntity(BlockEntityRegistry.POT_AMPHORA)));
             POT_AMPHORA_UPPER_MAP.put(p, BLOCKS.register("pot_amphora_component_" + p.getSerializedName(),
                     () -> new PotAmphoraComponentBlock(POT_PROPERTIES, SHAPE_AMPHORA_UPPER)));
             POT_FLOWER_MAP.put(p, BLOCKS.register("pot_flower_" + p.getSerializedName(),
-                    () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_FLOWER)));
+                    () -> new PotFlowerBlock(POT_PROPERTIES, SHAPE_FLOWER)));
             POT_JUG_MAP.put(p, BLOCKS.register("pot_jug_" + p.getSerializedName(),
                     () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_JUG)));
             POT_JUG_LARGE_MAP.put(p, BLOCKS.register("pot_jug_large_" + p.getSerializedName(),

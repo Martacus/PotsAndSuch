@@ -1,9 +1,9 @@
-package com.mart.docheio.common.blocks;
+package com.mart.docheio.common.blocks.pot;
 
 import com.mart.docheio.common.blockentity.PotBlockEntity;
+import com.mart.docheio.common.blocks.PotBlock;
 import com.mart.docheio.common.blocks.patterns.PotPattern;
 import com.mart.docheio.data.DocheioProperties;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -18,7 +18,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class PotPotBlock extends PotEntityBlock<PotBlockEntity>{
+public class PotPotBlock extends PotBlock {
 
     public static final EnumProperty<PotPattern.TOP> TOP_PATTERN = DocheioProperties.POT_TOP_PATTERN;
     public static final EnumProperty<PotPattern.BOTTOM> BOTTOM_PATTERN = DocheioProperties.POT_BOTTOM_PATTERN;
@@ -31,14 +31,6 @@ public class PotPotBlock extends PotEntityBlock<PotBlockEntity>{
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(TOP_PATTERN, BOTTOM_PATTERN);
-        //Minecraft.getInstance().getBlockRenderer().getBlockModel()
-    }
-
-
-    @Nullable
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return super.getStateForPlacement(pContext);
     }
 
     @Override
