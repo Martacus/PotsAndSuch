@@ -20,7 +20,7 @@ import team.lodestar.lodestone.systems.multiblock.MultiblockComponentBlock;
 public class PotAmphoraComponentBlock extends MultiblockComponentBlock {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final EnumProperty<PotAmphoraPattern.UPPER> TOP_PATTERN = DocheioProperties.POT_AMPHORA_TOP_PATTERN;
+    public static final EnumProperty<PotAmphoraPattern.UPPER> TOP_PATTERN = DocheioProperties.POT_AMPHORA_UPPER_PATTERN;
 
     protected final VoxelShape SHAPE;
 

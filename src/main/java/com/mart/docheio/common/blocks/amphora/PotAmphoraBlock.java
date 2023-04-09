@@ -29,7 +29,7 @@ import team.lodestar.lodestone.systems.block.LodestoneEntityBlock;
 public class PotAmphoraBlock extends LodestoneEntityBlock<PotAmphoraEntity> implements IPotBlock {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final EnumProperty<PotAmphoraPattern.UPPER> TOP_PATTERN = DocheioProperties.POT_AMPHORA_TOP_PATTERN;
+    public static final EnumProperty<PotAmphoraPattern.UPPER> TOP_PATTERN = DocheioProperties.POT_AMPHORA_UPPER_PATTERN;
     public static final EnumProperty<PotAmphoraPattern.MIDDLE> MIDDLE_PATTERN = DocheioProperties.POT_AMPHORA_MIDDLE_PATTERN;
     public static final EnumProperty<PotAmphoraPattern.BOTTOM> BOTTOM_PATTERN = DocheioProperties.POT_AMPHORA_BOTTOM_PATTERN;
     private final PotColor color;
@@ -84,6 +84,6 @@ public class PotAmphoraBlock extends LodestoneEntityBlock<PotAmphoraEntity> impl
     @Override
     public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
         super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
-        pLevel.setBlockAndUpdate(pPos.above(), pLevel.getBlockState(pPos.above()).setValue(FACING, pState.getValue(FACING)).setValue(DocheioProperties.POT_AMPHORA_TOP_PATTERN, pState.getValue(TOP_PATTERN)));
+        pLevel.setBlockAndUpdate(pPos.above(), pLevel.getBlockState(pPos.above()).setValue(FACING, pState.getValue(FACING)).setValue(DocheioProperties.POT_AMPHORA_UPPER_PATTERN, pState.getValue(TOP_PATTERN)));
     }
 }

@@ -17,7 +17,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class PotPotBlock extends PotBlock {
 
-    public static final EnumProperty<PotPattern.UPPER> TOP_PATTERN = DocheioProperties.POT_TOP_PATTERN;
+    public static final EnumProperty<PotPattern.UPPER> TOP_PATTERN = DocheioProperties.POT_UPPER_PATTERN;
     public static final EnumProperty<PotPattern.BOTTOM> BOTTOM_PATTERN = DocheioProperties.POT_BOTTOM_PATTERN;
 
     public PotPotBlock(Properties pProperties, VoxelShape shape) {

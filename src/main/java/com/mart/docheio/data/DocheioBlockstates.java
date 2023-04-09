@@ -9,6 +9,8 @@ import com.mart.docheio.common.blocks.jug.PotJugBlock;
 import com.mart.docheio.common.blocks.jug_large.PotJugComponentBlock;
 import com.mart.docheio.common.blocks.jug_large.PotJugLargeBlock;
 import com.mart.docheio.common.blocks.patterns.*;
+import com.mart.docheio.common.blocks.pitcher.PotPitcherBlock;
+import com.mart.docheio.common.blocks.planter.PotPlanterBlock;
 import com.mart.docheio.common.blocks.pot.PotPotBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
@@ -45,6 +47,8 @@ public class DocheioBlockstates extends BlockStateProvider {
         takeAll(blocks, b -> b.get() instanceof PotJugBlock).forEach(this::potJugPatternBlock);
         takeAll(blocks, b -> b.get() instanceof PotJugLargeBlock).forEach(this::potJugLargePatternBlock);
         takeAll(blocks, b -> b.get() instanceof PotJugComponentBlock).forEach(this::potJugLargeComponentBlock);
+        takeAll(blocks, b -> b.get() instanceof PotPitcherBlock).forEach(this::potPitcherPatternBlock);
+        takeAll(blocks, b -> b.get() instanceof PotPlanterBlock).forEach(this::potPlanterPatternBlock);
         takeAll(blocks, b -> b.get() instanceof PotBlock).forEach(this::potBlock);
         takeAll(blocks, b -> b.get() instanceof TwoTallPotBlock).forEach(this::tallPotBlock);
         takeAll(blocks, b -> b.get() instanceof PotteryWheelBlock).forEach(this::multipleSideBlock);
@@ -90,7 +94,7 @@ public class DocheioBlockstates extends BlockStateProvider {
             String type_upper = upperPattern.getSerializedName();
             ResourceLocation upper_texture = type_upper.equals("transparent") ? docheioPath("block/patterns/transparent") : docheioPath("block/patterns/pot/pot_pattern_" + type_upper);
             ModelFile upperPatternModel = models().withExistingParent(templateName + "_upper_" + type_upper, docheioPath("block/templates/" + templateName + "_upper")).renderType("cutout_mipped").texture("pattern_2", upper_texture);
-            builder.part().modelFile(upperPatternModel).addModel().condition(DocheioProperties.POT_TOP_PATTERN, upperPattern);
+            builder.part().modelFile(upperPatternModel).addModel().condition(DocheioProperties.POT_UPPER_PATTERN, upperPattern);
         }
     }
 
@@ -127,7 +131,7 @@ public class DocheioBlockstates extends BlockStateProvider {
             String type_upper = upperPattern.getSerializedName();
             ResourceLocation upper_texture = type_upper.equals("transparent") ? docheioPath("block/patterns/transparent") : docheioPath("block/patterns/pot_amphora/pot_amphora_pattern_" + type_upper);
             ModelFile upperPatternModel = models().withExistingParent(templateName + "_middle_top_" + type_upper , docheioPath("block/templates/" + templateName + "_middle_top")).renderType("cutout_mipped").texture("pattern_3", upper_texture);
-            builder.part().modelFile(upperPatternModel).addModel().condition(DocheioProperties.POT_AMPHORA_TOP_PATTERN, upperPattern);
+            builder.part().modelFile(upperPatternModel).addModel().condition(DocheioProperties.POT_AMPHORA_UPPER_PATTERN, upperPattern);
         }
     }
 
@@ -150,7 +154,7 @@ public class DocheioBlockstates extends BlockStateProvider {
             String type_upper = upperPattern.getSerializedName();
             ResourceLocation upper_texture = type_upper.equals("transparent") ? docheioPath("block/patterns/transparent") : docheioPath("block/patterns/pot_amphora/pot_amphora_pattern_" + type_upper);
             ModelFile upperPatternModel = models().withExistingParent(templateName + "_upper_" + type_upper , docheioPath("block/templates/" + templateName + "_upper")).renderType("cutout_mipped").texture("pattern_3", upper_texture);
-            builder.part().modelFile(upperPatternModel).addModel().condition(DocheioProperties.POT_AMPHORA_TOP_PATTERN, upperPattern);
+            builder.part().modelFile(upperPatternModel).addModel().condition(DocheioProperties.POT_AMPHORA_UPPER_PATTERN, upperPattern);
         }
     }
 
@@ -266,7 +270,68 @@ public class DocheioBlockstates extends BlockStateProvider {
             builder.part().modelFile(upperPatternModel).addModel().condition(DocheioProperties.POT_JUG_LARGE_TOP_PATTERN, upperPattern);
         }
     }
-    
+
+    public void potPitcherPatternBlock(RegistryObject<Block> blockRegistryObject) {
+        String name = ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath();
+
+        ResourceLocation textureLocation = docheioPath("block/" + name);
+        final String templateName = replaceAll(name, colors);
+
+        ModelFile baseModel = models().withExistingParent(name , docheioPath("block/templates/" + templateName)).renderType("cutout_mipped")
+                .texture("main", textureLocation).texture("particle", textureLocation);
+
+        MultiPartBlockStateBuilder builder = getMultipartBuilder(blockRegistryObject.get());
+        builder.part().modelFile(baseModel).rotationY((int) Direction.NORTH.toYRot()).addModel().condition(HorizontalDirectionalBlock.FACING, Direction.NORTH);
+        builder.part().modelFile(baseModel).rotationY((int) Direction.EAST.toYRot()).addModel().condition(HorizontalDirectionalBlock.FACING, Direction.EAST);
+        builder.part().modelFile(baseModel).rotationY((int) Direction.SOUTH.toYRot()).addModel().condition(HorizontalDirectionalBlock.FACING, Direction.SOUTH);
+        builder.part().modelFile(baseModel).rotationY((int) Direction.WEST.toYRot()).addModel().condition(HorizontalDirectionalBlock.FACING, Direction.WEST);
+
+        for(PotPitcherPattern.BOTTOM bottomPattern : PotPitcherPattern.BOTTOM.values()){
+            String type_bottom = bottomPattern.getSerializedName();
+            ResourceLocation bottom_texture = type_bottom.equals("transparent") ? docheioPath("block/patterns/transparent") : docheioPath("block/patterns/pot_pitcher/pot_pitcher_pattern_" + type_bottom);
+            ModelFile lowerPatternModel = models().withExistingParent(templateName + "_lower_" + type_bottom , docheioPath("block/templates/" + templateName + "_lower")).renderType("cutout_mipped").texture("pattern_1", bottom_texture);
+            builder.part().modelFile(lowerPatternModel).addModel().condition(DocheioProperties.POT_PITCHER_BOTTOM_PATTERN, bottomPattern);
+        }
+
+        for(PotPitcherPattern.UPPER upperPattern : PotPitcherPattern.UPPER.values()){
+            String type_upper = upperPattern.getSerializedName();
+            ResourceLocation upper_texture = type_upper.equals("transparent") ? docheioPath("block/patterns/transparent") : docheioPath("block/patterns/pot_pitcher/pot_pitcher_pattern_" + type_upper);
+            ModelFile upperPatternModel = models().withExistingParent(templateName + "_upper_" + type_upper, docheioPath("block/templates/" + templateName + "_upper")).renderType("cutout_mipped").texture("pattern_2", upper_texture);
+            builder.part().modelFile(upperPatternModel).rotationY((int) Direction.NORTH.toYRot()).addModel().condition(HorizontalDirectionalBlock.FACING, Direction.NORTH).condition(DocheioProperties.POT_PITCHER_UPPER_PATTERN, upperPattern);
+            builder.part().modelFile(upperPatternModel).rotationY((int) Direction.EAST.toYRot()).addModel().condition(HorizontalDirectionalBlock.FACING, Direction.EAST).condition(DocheioProperties.POT_PITCHER_UPPER_PATTERN, upperPattern);
+            builder.part().modelFile(upperPatternModel).rotationY((int) Direction.SOUTH.toYRot()).addModel().condition(HorizontalDirectionalBlock.FACING, Direction.SOUTH).condition(DocheioProperties.POT_PITCHER_UPPER_PATTERN, upperPattern);
+            builder.part().modelFile(upperPatternModel).rotationY((int) Direction.WEST.toYRot()).addModel().condition(HorizontalDirectionalBlock.FACING, Direction.WEST).condition(DocheioProperties.POT_PITCHER_UPPER_PATTERN, upperPattern);
+        }
+    }
+
+    public void potPlanterPatternBlock(RegistryObject<Block> blockRegistryObject) {
+        String name = ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath();
+
+        ResourceLocation textureLocation = docheioPath("block/" + name);
+        final String templateName = replaceAll(name, colors);
+
+        ModelFile baseModel = models().withExistingParent(name , docheioPath("block/templates/" + templateName)).renderType("cutout_mipped")
+                .texture("main", textureLocation).texture("particle", textureLocation);
+
+        MultiPartBlockStateBuilder builder = getMultipartBuilder(blockRegistryObject.get());
+        builder.part().modelFile(baseModel).addModel();
+
+        for(PotPlanterPattern.BOTTOM bottomPattern : PotPlanterPattern.BOTTOM.values()){
+            String type_bottom = bottomPattern.getSerializedName();
+            ResourceLocation bottom_texture = type_bottom.equals("transparent") ? docheioPath("block/patterns/transparent") : docheioPath("block/patterns/pot_planter/pot_planter_pattern_" + type_bottom);
+            ModelFile lowerPatternModel = models().withExistingParent(templateName + "_lower_" + type_bottom , docheioPath("block/templates/" + templateName + "_lower")).renderType("cutout_mipped").texture("pattern_1", bottom_texture);
+            builder.part().modelFile(lowerPatternModel).addModel().condition(DocheioProperties.POT_PLANTER_BOTTOM_PATTERN, bottomPattern);
+        }
+
+        for(PotPlanterPattern.UPPER upperPattern : PotPlanterPattern.UPPER.values()){
+            String type_upper = upperPattern.getSerializedName();
+            ResourceLocation upper_texture = type_upper.equals("transparent") ? docheioPath("block/patterns/transparent") : docheioPath("block/patterns/pot_planter/pot_planter_pattern_" + type_upper);
+            ModelFile upperPatternModel = models().withExistingParent(templateName + "_upper_" + type_upper, docheioPath("block/templates/" + templateName + "_upper")).renderType("cutout_mipped").texture("pattern_2", upper_texture);
+            builder.part().modelFile(upperPatternModel).addModel().condition(DocheioProperties.POT_PLANTER_UPPER_PATTERN, upperPattern);
+        }
+    }
+
+
     public void tallPotBlock(RegistryObject<Block> blockRegistryObject) {
         String name = ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath();
 
