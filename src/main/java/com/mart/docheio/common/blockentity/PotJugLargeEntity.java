@@ -1,6 +1,6 @@
 package com.mart.docheio.common.blockentity;
 
-import com.mart.docheio.common.blocks.amphora.PotAmphoraBlock;
+import com.mart.docheio.common.blocks.jug_large.PotJugLargeBlock;
 import com.mart.docheio.common.registry.blocks.BlockRegistry;
 import com.mart.docheio.common.registry.entity.BlockEntityRegistry;
 import com.mart.docheio.common.util.PotColor;
@@ -13,15 +13,15 @@ import team.lodestar.lodestone.systems.multiblock.MultiBlockStructure;
 
 import java.util.function.Supplier;
 
-public class PotAmphoraEntity extends MultiBlockCoreEntity{
+public class PotJugLargeEntity extends MultiBlockCoreEntity {
 
-    public PotAmphoraEntity(BlockPos pos, BlockState state) {
-        super(BlockEntityRegistry.POT_AMPHORA.get(), getStructure(state), pos, state);
+    public PotJugLargeEntity(BlockPos pos, BlockState state) {
+        super(BlockEntityRegistry.POT_JUG_LARGE.get(), getStructure(state), pos, state);
     }
 
     private static MultiBlockStructure getStructure(BlockState state){
-        PotAmphoraBlock block = (PotAmphoraBlock) state.getBlock();
-        return MultiBlockStructure.of(new MultiBlockStructure.StructurePiece(0, 1, 0, BlockRegistry.POT_AMPHORA_TOP_MAP.get(block.getColor()).get().defaultBlockState()));
+        PotJugLargeBlock block = (PotJugLargeBlock) state.getBlock();
+        return MultiBlockStructure.of(new MultiBlockStructure.StructurePiece(0, 1, 0, BlockRegistry.POT_JUG_LARGE_TOP_MAP.get(block.getColor()).get().defaultBlockState()));
     }
 
     @Override
@@ -32,7 +32,7 @@ public class PotAmphoraEntity extends MultiBlockCoreEntity{
 
     public static Supplier<MultiBlockStructure> getItemStructure(PotColor color){
         return () -> MultiBlockStructure.of(new MultiBlockStructure.StructurePiece(0, 1, 0,
-                BlockRegistry.POT_AMPHORA_TOP_MAP.get(color).get().defaultBlockState()));
+                BlockRegistry.POT_JUG_LARGE_TOP_MAP.get(color).get().defaultBlockState()));
     }
 
 

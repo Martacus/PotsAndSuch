@@ -1,6 +1,6 @@
-package com.mart.docheio.common.blocks.amphora;
+package com.mart.docheio.common.blocks.jug_large;
 
-import com.mart.docheio.common.blocks.patterns.PotAmphoraPattern;
+import com.mart.docheio.common.blocks.patterns.PotJugLargePattern;
 import com.mart.docheio.data.DocheioProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -17,18 +17,18 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 import team.lodestar.lodestone.systems.multiblock.MultiblockComponentBlock;
 
-public class PotAmphoraComponentBlock extends MultiblockComponentBlock {
+public class PotJugComponentBlock extends MultiblockComponentBlock {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final EnumProperty<PotAmphoraPattern.UPPER> TOP_PATTERN = DocheioProperties.POT_AMPHORA_TOP_PATTERN;
+    public static final EnumProperty<PotJugLargePattern.UPPER> TOP_PATTERN = DocheioProperties.POT_JUG_LARGE_TOP_PATTERN;
 
     protected final VoxelShape SHAPE;
 
-    public PotAmphoraComponentBlock(Properties properties, VoxelShape shape) {
+    public PotJugComponentBlock(Properties properties, VoxelShape shape) {
         super(properties);
         this.SHAPE = shape;
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH)
-                .setValue(TOP_PATTERN, PotAmphoraPattern.UPPER.NECK_HIDE));
+                .setValue(TOP_PATTERN, PotJugLargePattern.UPPER.TRANSPARENT));
     }
 
     @Override

@@ -1,11 +1,6 @@
 {
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 37],
-	"textures": {
-		"pattern_2": "docheio:block/patterns/pot_amphora/pot_amphora_pattern_low_eyes",
-		"particle": "docheio:block/patterns/pot_amphora/pot_amphora_pattern_hide",
-		"pattern_3": "docheio:block/patterns/pot_amphora/pot_amphora_pattern_hide"
-	},
 	"elements": [
 		{
 			"name": "Main Box",

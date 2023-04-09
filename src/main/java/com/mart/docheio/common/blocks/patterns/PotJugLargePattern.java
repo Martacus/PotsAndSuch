@@ -3,15 +3,15 @@ package com.mart.docheio.common.blocks.patterns;
 import net.minecraft.util.StringRepresentable;
 import org.jetbrains.annotations.NotNull;
 
-public class PotAmphoraPattern {
+public class PotJugLargePattern {
 
     public enum UPPER implements StringRepresentable {
         TRANSPARENT(0, "transparent", ""),
-        CHEVRON(1, "chevron", "Chevron"),
-        NECK_EYES(2, "neck_eyes", "Eyes"),
-        NECK_HIDE(3, "neck_hide", "Hide"),
-        NECK_STITCH(4, "neck_stitch", "Stitch"),
-        NECK_STRIPES(5, "neck_stripes", "Stripes");
+        HANDLES(1, "handles", "Handles"),
+        NECK_CHECKERS(2, "neck_checkers", "Checkers"),
+        RIM_BLOCKS(3, "rim_blocks", "Rim Blocks"),
+        RIM_SPECKS(4, "rim_specks", "Rim Specks"),
+        NECK_STRIPES(5, "neck_stripe", "Stripes");
 
         private final int id;
         private final String name;
@@ -32,21 +32,21 @@ public class PotAmphoraPattern {
             return id;
         }
 
-        public static UPPER getById(int i){
-            for(UPPER e : values()){
+        public static PotJugLargePattern.UPPER getById(int i){
+            for(PotJugLargePattern.UPPER e : values()){
                 if(i == e.getId()){
                     return e;
                 }
             }
-            return UPPER.TRANSPARENT;
+            return PotJugLargePattern.UPPER.TRANSPARENT;
         }
     }
 
     public enum MIDDLE implements StringRepresentable {
         TRANSPARENT(0, "transparent", ""),
-        EYES(1, "eyes", "Eyes"),
-        HIDE(2, "hide", "Hide"),
-        STRIPE(3, "stripe", "Stripe"),
+        LABEL(1, "label", "Label"),
+        SPECKS(2, "specks", "Specks"),
+        EYE(3, "eye", "Eyes"),
         WIGGLE(4, "wiggle", "Wiggle"),
         ZAG(5, "zag", "Zag");
 
@@ -69,23 +69,23 @@ public class PotAmphoraPattern {
             return id;
         }
 
-        public static MIDDLE getById(int i){
-            for(MIDDLE e : values()){
+        public static PotJugLargePattern.MIDDLE getById(int i){
+            for(PotJugLargePattern.MIDDLE e : values()){
                 if(i == e.getId()){
                     return e;
                 }
             }
-            return MIDDLE.TRANSPARENT;
+            return PotJugLargePattern.MIDDLE.TRANSPARENT;
         }
     }
 
     public enum BOTTOM implements StringRepresentable {
         TRANSPARENT(0, "transparent", ""),
-        LOW_EYES(1, "low_eyes", "Eyes"),
-        LOW_STRIPES(2, "low_stripes", "Stripes"),
+        LOW_CHECKERS(1, "low_checkers", "Checkers"),
+        LOW_LABEL(2, "low_label", "Label"),
         LOW_WIGGLE(3, "low_wiggle", "Wiggle"),
-        LOW_ZAG(4, "low_zag", "Zag"),
-        STITCH(5, "stitch", "Stitch");
+        STRIPES(4, "stripes", "Stripes"),
+        BLOCKS(5, "blocks", "Blocks");
 
 
         private final int id;
@@ -106,13 +106,14 @@ public class PotAmphoraPattern {
             return id;
         }
 
-        public static BOTTOM getById(int i){
-            for(BOTTOM e : values()){
+        public static PotJugLargePattern.BOTTOM getById(int i){
+            for(PotJugLargePattern.BOTTOM e : values()){
                 if(i == e.getId()){
                     return e;
                 }
             }
-            return BOTTOM.TRANSPARENT;
+            return PotJugLargePattern.BOTTOM.TRANSPARENT;
         }
     }
+    
 }
