@@ -12,6 +12,7 @@ import com.mart.docheio.common.blocks.pitcher.PotPitcherBlock;
 import com.mart.docheio.common.blocks.planter.PotPlanterBlock;
 import com.mart.docheio.common.blocks.planter.PotPlanterSmallBlock;
 import com.mart.docheio.common.blocks.pot.PotPotBlock;
+import com.mart.docheio.common.blocks.pot.PotSmallBlock;
 import com.mart.docheio.common.registry.entity.BlockEntityRegistry;
 import com.mart.docheio.common.util.PotColor;
 import net.minecraft.world.level.block.Block;
@@ -87,7 +88,7 @@ public class BlockRegistry {
             POT_PLANTER_SMALL_MAP.put(p, BLOCKS.register("pot_planter_small_" + p.getSerializedName(),
                     () -> new PotPlanterSmallBlock(POT_PROPERTIES, SHAPE_PLANTER_SMALL)));
             POT_SMALL_MAP.put(p, BLOCKS.register("pot_small_" + p.getSerializedName(),
-                    () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_SMALL)));
+                    () -> new PotSmallBlock(POT_PROPERTIES, SHAPE_SMALL)));
             POT_TALL_MAP.put(p, BLOCKS.register("pot_tall_" + p.getSerializedName(),
                     () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_TALL)));
             POT_VASE_MAP.put(p, BLOCKS.register("pot_vase_" + p.getSerializedName(),
