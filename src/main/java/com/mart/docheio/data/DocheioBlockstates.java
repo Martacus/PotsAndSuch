@@ -15,6 +15,7 @@ import com.mart.docheio.common.blocks.planter.PotPlanterSmallBlock;
 import com.mart.docheio.common.blocks.pot.PotPotBlock;
 import com.mart.docheio.common.blocks.pot.PotSmallBlock;
 import com.mart.docheio.common.blocks.pot.PotTallBlock;
+import com.mart.docheio.common.blocks.vase.PotVaseBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -55,6 +56,7 @@ public class DocheioBlockstates extends BlockStateProvider {
         takeAll(blocks, b -> b.get() instanceof PotPlanterSmallBlock).forEach(this::potPlanterSmallPatternBlock);
         takeAll(blocks, b -> b.get() instanceof PotSmallBlock).forEach(this::potSmallPatternBlock);
         takeAll(blocks, b -> b.get() instanceof PotTallBlock).forEach(this::potTallPatternBlock);
+        takeAll(blocks, b -> b.get() instanceof PotVaseBlock).forEach(this::potVasePatternBlock);
         //takeAll(blocks, b -> b.get() instanceof PotBlock).forEach(this::potBlock);
         //takeAll(blocks, b -> b.get() instanceof TwoTallPotBlock).forEach(this::tallPotBlock);
         takeAll(blocks, b -> b.get() instanceof PotteryWheelBlock).forEach(this::multipleSideBlock);
@@ -402,6 +404,34 @@ public class DocheioBlockstates extends BlockStateProvider {
             builder.part().modelFile(lowerPatternModel).rotationY((int) Direction.WEST.toYRot()).addModel().condition(HorizontalDirectionalBlock.FACING, Direction.WEST).condition(DocheioProperties.POT_TALL_BOTTOM_PATTERN, bottomPattern);
         }
     }
+
+    public void potVasePatternBlock(RegistryObject<Block> blockRegistryObject) {
+        String name = ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath();
+
+        ResourceLocation textureLocation = docheioPath("block/" + name);
+        final String templateName = replaceAll(name, colors);
+
+        ModelFile baseModel = models().withExistingParent(name , docheioPath("block/templates/" + templateName)).renderType("cutout_mipped")
+                .texture("main", textureLocation).texture("particle", textureLocation);
+
+        MultiPartBlockStateBuilder builder = getMultipartBuilder(blockRegistryObject.get());
+        builder.part().modelFile(baseModel).addModel();
+
+        for(PotVasePattern.BOTTOM bottomPattern : PotVasePattern.BOTTOM.values()){
+            String type_bottom = bottomPattern.getSerializedName();
+            ResourceLocation bottom_texture = type_bottom.equals("transparent") ? docheioPath("block/patterns/transparent") : docheioPath("block/patterns/pot_vase/pot_vase_pattern_" + type_bottom);
+            ModelFile lowerPatternModel = models().withExistingParent(templateName + "_lower_" + type_bottom , docheioPath("block/templates/" + templateName + "_lower")).renderType("cutout_mipped").texture("pattern_1", bottom_texture);
+            builder.part().modelFile(lowerPatternModel).addModel().condition(DocheioProperties.POT_VASE_BOTTOM_PATTERN, bottomPattern);
+        }
+
+        for(PotVasePattern.UPPER upperPattern : PotVasePattern.UPPER.values()){
+            String type_upper = upperPattern.getSerializedName();
+            ResourceLocation upper_texture = type_upper.equals("transparent") ? docheioPath("block/patterns/transparent") : docheioPath("block/patterns/pot_vase/pot_vase_pattern_" + type_upper);
+            ModelFile upperPatternModel = models().withExistingParent(templateName + "_upper_" + type_upper, docheioPath("block/templates/" + templateName + "_upper")).renderType("cutout_mipped").texture("pattern_2", upper_texture);
+            builder.part().modelFile(upperPatternModel).addModel().condition(DocheioProperties.POT_VASE_UPPER_PATTERN, upperPattern);
+        }
+    }
+    
     public void tallPotBlock(RegistryObject<Block> blockRegistryObject) {
         String name = ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath();
 
