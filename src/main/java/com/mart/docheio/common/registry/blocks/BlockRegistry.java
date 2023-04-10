@@ -13,6 +13,7 @@ import com.mart.docheio.common.blocks.planter.PotPlanterBlock;
 import com.mart.docheio.common.blocks.planter.PotPlanterSmallBlock;
 import com.mart.docheio.common.blocks.pot.PotPotBlock;
 import com.mart.docheio.common.blocks.pot.PotSmallBlock;
+import com.mart.docheio.common.blocks.pot.PotTallBlock;
 import com.mart.docheio.common.registry.entity.BlockEntityRegistry;
 import com.mart.docheio.common.util.PotColor;
 import net.minecraft.world.level.block.Block;
@@ -90,11 +91,11 @@ public class BlockRegistry {
             POT_SMALL_MAP.put(p, BLOCKS.register("pot_small_" + p.getSerializedName(),
                     () -> new PotSmallBlock(POT_PROPERTIES, SHAPE_SMALL)));
             POT_TALL_MAP.put(p, BLOCKS.register("pot_tall_" + p.getSerializedName(),
-                    () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_TALL)));
+                    () -> new PotTallBlock(POT_PROPERTIES, SHAPE_TALL)));
             POT_VASE_MAP.put(p, BLOCKS.register("pot_vase_" + p.getSerializedName(),
-                    () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_VASE)));
+                    () -> new PotBlock(POT_PROPERTIES, SHAPE_VASE)));
             POT_VASE_LARGE_MAP.put(p, BLOCKS.register("pot_vase_large_" + p.getSerializedName(),
-                    () -> new TwoTallPotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_VASE_LARGE_LOWER, SHAPE_VASE_LARGE_UPPER)));
+                    () -> new TwoTallPotBlock(POT_PROPERTIES, SHAPE_VASE_LARGE_LOWER, SHAPE_VASE_LARGE_UPPER)));
         });
     }
 
