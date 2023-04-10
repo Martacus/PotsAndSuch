@@ -20,4 +20,5 @@ public class DocheioProperties {
     public static final EnumProperty<PotPitcherPattern.BOTTOM> POT_PITCHER_BOTTOM_PATTERN = EnumProperty.create("pot_pitcher_pattern_bottom", PotPitcherPattern.BOTTOM.class);
     public static final EnumProperty<PotPlanterPattern.UPPER> POT_PLANTER_UPPER_PATTERN = EnumProperty.create("pot_planter_pattern_top", PotPlanterPattern.UPPER.class);
     public static final EnumProperty<PotPlanterPattern.BOTTOM> POT_PLANTER_BOTTOM_PATTERN = EnumProperty.create("pot_planter_pattern_bottom", PotPlanterPattern.BOTTOM.class);
+    public static final EnumProperty<PotPlanterSmallPattern.BOTTOM> POT_PLANTER_SMALL_BOTTOM_PATTERN = EnumProperty.create("pot_planter_small_pattern_bottom", PotPlanterSmallPattern.BOTTOM.class);
 }

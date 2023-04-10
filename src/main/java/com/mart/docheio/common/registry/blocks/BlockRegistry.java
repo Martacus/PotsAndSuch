@@ -10,6 +10,7 @@ import com.mart.docheio.common.blocks.jug_large.PotJugComponentBlock;
 import com.mart.docheio.common.blocks.jug_large.PotJugLargeBlock;
 import com.mart.docheio.common.blocks.pitcher.PotPitcherBlock;
 import com.mart.docheio.common.blocks.planter.PotPlanterBlock;
+import com.mart.docheio.common.blocks.planter.PotPlanterSmallBlock;
 import com.mart.docheio.common.blocks.pot.PotPotBlock;
 import com.mart.docheio.common.registry.entity.BlockEntityRegistry;
 import com.mart.docheio.common.util.PotColor;
@@ -84,7 +85,7 @@ public class BlockRegistry {
             POT_PLANTER_MAP.put(p, BLOCKS.register("pot_planter_" + p.getSerializedName(),
                     () -> new PotPlanterBlock(POT_PROPERTIES, SHAPE_PLANTER)));
             POT_PLANTER_SMALL_MAP.put(p, BLOCKS.register("pot_planter_small_" + p.getSerializedName(),
-                    () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_PLANTER_SMALL)));
+                    () -> new PotPlanterSmallBlock(POT_PROPERTIES, SHAPE_PLANTER_SMALL)));
             POT_SMALL_MAP.put(p, BLOCKS.register("pot_small_" + p.getSerializedName(),
                     () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_SMALL)));
             POT_TALL_MAP.put(p, BLOCKS.register("pot_tall_" + p.getSerializedName(),

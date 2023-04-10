@@ -11,6 +11,7 @@ import com.mart.docheio.common.blocks.jug_large.PotJugLargeBlock;
 import com.mart.docheio.common.blocks.patterns.*;
 import com.mart.docheio.common.blocks.pitcher.PotPitcherBlock;
 import com.mart.docheio.common.blocks.planter.PotPlanterBlock;
+import com.mart.docheio.common.blocks.planter.PotPlanterSmallBlock;
 import com.mart.docheio.common.blocks.pot.PotPotBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
@@ -49,8 +50,9 @@ public class DocheioBlockstates extends BlockStateProvider {
         takeAll(blocks, b -> b.get() instanceof PotJugComponentBlock).forEach(this::potJugLargeComponentBlock);
         takeAll(blocks, b -> b.get() instanceof PotPitcherBlock).forEach(this::potPitcherPatternBlock);
         takeAll(blocks, b -> b.get() instanceof PotPlanterBlock).forEach(this::potPlanterPatternBlock);
-        takeAll(blocks, b -> b.get() instanceof PotBlock).forEach(this::potBlock);
-        takeAll(blocks, b -> b.get() instanceof TwoTallPotBlock).forEach(this::tallPotBlock);
+        takeAll(blocks, b -> b.get() instanceof PotPlanterSmallBlock).forEach(this::potPlanterSmallPatternBlock);
+        //takeAll(blocks, b -> b.get() instanceof PotBlock).forEach(this::potBlock);
+        //takeAll(blocks, b -> b.get() instanceof TwoTallPotBlock).forEach(this::tallPotBlock);
         takeAll(blocks, b -> b.get() instanceof PotteryWheelBlock).forEach(this::multipleSideBlock);
     }
 
@@ -331,6 +333,25 @@ public class DocheioBlockstates extends BlockStateProvider {
         }
     }
 
+    public void potPlanterSmallPatternBlock(RegistryObject<Block> blockRegistryObject) {
+        String name = ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath();
+
+        ResourceLocation textureLocation = docheioPath("block/" + name);
+        final String templateName = replaceAll(name, colors);
+
+        ModelFile baseModel = models().withExistingParent(name , docheioPath("block/templates/" + templateName)).renderType("cutout_mipped")
+                .texture("main", textureLocation).texture("particle", textureLocation);
+
+        MultiPartBlockStateBuilder builder = getMultipartBuilder(blockRegistryObject.get());
+        builder.part().modelFile(baseModel).addModel();
+
+        for(PotPlanterSmallPattern.BOTTOM bottomPattern : PotPlanterSmallPattern.BOTTOM.values()){
+            String type_bottom = bottomPattern.getSerializedName();
+            ResourceLocation bottom_texture = type_bottom.equals("transparent") ? docheioPath("block/patterns/transparent") : docheioPath("block/patterns/pot_planter_small/pot_planter_small_pattern_" + type_bottom);
+            ModelFile lowerPatternModel = models().withExistingParent(templateName + "_lower_" + type_bottom , docheioPath("block/templates/" + templateName + "_lower")).renderType("cutout_mipped").texture("pattern_1", bottom_texture);
+            builder.part().modelFile(lowerPatternModel).addModel().condition(DocheioProperties.POT_PLANTER_SMALL_BOTTOM_PATTERN, bottomPattern);
+        }
+    }
 
     public void tallPotBlock(RegistryObject<Block> blockRegistryObject) {
         String name = ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath();
