@@ -15,6 +15,8 @@ import com.mart.docheio.common.blocks.pot.PotPotBlock;
 import com.mart.docheio.common.blocks.pot.PotSmallBlock;
 import com.mart.docheio.common.blocks.pot.PotTallBlock;
 import com.mart.docheio.common.blocks.vase.PotVaseBlock;
+import com.mart.docheio.common.blocks.vase.VaseLargeBlock;
+import com.mart.docheio.common.blocks.vase.VaseLargeTopBlock;
 import com.mart.docheio.common.registry.entity.BlockEntityRegistry;
 import com.mart.docheio.common.util.PotColor;
 import net.minecraft.world.level.block.Block;
@@ -66,6 +68,7 @@ public class BlockRegistry {
     public static final HashMap<PotColor, RegistryObject<Block>> POT_TALL_MAP = new HashMap<>();
     public static final HashMap<PotColor, RegistryObject<Block>> POT_VASE_MAP = new HashMap<>();
     public static final HashMap<PotColor, RegistryObject<Block>> POT_VASE_LARGE_MAP = new HashMap<>();
+    public static final HashMap<PotColor, RegistryObject<Block>> POT_VASE_LARGE_TOP_MAP = new HashMap<>();
     public static final RegistryObject<Block> POTTERY_WHEEL = BLOCKS.register("pottery_wheel", () -> new PotteryWheelBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
     public static void createPots(){
         Arrays.stream(PotColor.values()).toList().forEach(p -> {
@@ -96,7 +99,9 @@ public class BlockRegistry {
             POT_VASE_MAP.put(p, BLOCKS.register("pot_vase_" + p.getSerializedName(),
                     () -> new PotVaseBlock(POT_PROPERTIES, SHAPE_VASE)));
             POT_VASE_LARGE_MAP.put(p, BLOCKS.register("pot_vase_large_" + p.getSerializedName(),
-                    () -> new TwoTallPotBlock(POT_PROPERTIES, SHAPE_VASE_LARGE_LOWER, SHAPE_VASE_LARGE_UPPER)));
+                    () -> new VaseLargeBlock(POT_PROPERTIES, p, SHAPE_VASE_LARGE_LOWER).setBlockEntity(BlockEntityRegistry.POT_VASE_LARGE)));
+            POT_VASE_LARGE_TOP_MAP.put(p, BLOCKS.register("pot_vase_large_top_" + p.getSerializedName(),
+                    () -> new VaseLargeTopBlock(POT_PROPERTIES, SHAPE_VASE_LARGE_UPPER)));
         });
     }
 

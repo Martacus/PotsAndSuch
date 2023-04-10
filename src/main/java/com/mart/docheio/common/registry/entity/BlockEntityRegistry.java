@@ -5,6 +5,7 @@ import com.mart.docheio.client.render.blockentity.PotEntityRenderer;
 import com.mart.docheio.common.blockentity.PotAmphoraEntity;
 import com.mart.docheio.common.blockentity.PotBlockEntity;
 import com.mart.docheio.common.blockentity.PotJugLargeEntity;
+import com.mart.docheio.common.blockentity.PotVaseLargeEntity;
 import com.mart.docheio.common.blocks.PotBlock;
 import com.mart.docheio.common.registry.blocks.BlockRegistry;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -24,6 +25,7 @@ public class BlockEntityRegistry {
     public static final RegistryObject<BlockEntityType<PotBlockEntity>> POT = BLOCK_ENTITY_TYPES.register("pot", () -> BlockEntityType.Builder.of(PotBlockEntity::new, allPotsOfType(BlockRegistry.POT_MAP)).build(null));
     public static final RegistryObject<BlockEntityType<PotAmphoraEntity>> POT_AMPHORA = BLOCK_ENTITY_TYPES.register("pot_amphora", () -> BlockEntityType.Builder.of(PotAmphoraEntity::new, allPotsOfType(BlockRegistry.POT_AMPHORA_MAP)).build(null));
     public static final RegistryObject<BlockEntityType<PotJugLargeEntity>> POT_JUG_LARGE = BLOCK_ENTITY_TYPES.register("pot_jug_large", () -> BlockEntityType.Builder.of(PotJugLargeEntity::new, allPotsOfType(BlockRegistry.POT_JUG_LARGE_MAP)).build(null));
+    public static final RegistryObject<BlockEntityType<PotVaseLargeEntity>> POT_VASE_LARGE = BLOCK_ENTITY_TYPES.register("pot_vase_large", () -> BlockEntityType.Builder.of(PotVaseLargeEntity::new, allPotsOfType(BlockRegistry.POT_VASE_LARGE_MAP)).build(null));
 
     @Mod.EventBusSubscriber(modid = PotsMod.DOCHEIO, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ClientOnly {

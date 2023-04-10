@@ -3,6 +3,7 @@ package com.mart.docheio.common.registry.item;
 import com.mart.docheio.PotsMod;
 import com.mart.docheio.common.blockentity.PotAmphoraEntity;
 import com.mart.docheio.common.blockentity.PotJugLargeEntity;
+import com.mart.docheio.common.blockentity.PotVaseLargeEntity;
 import com.mart.docheio.common.registry.blocks.BlockRegistry;
 import com.mart.docheio.common.util.PotColor;
 import net.minecraft.world.item.BlockItem;
@@ -44,7 +45,7 @@ public class DocheioItems {
             POT_SMALL_MAP.put(p, ITEMS.register("pot_small_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_SMALL_MAP.get(p).get(), getPotProperty())));
             POT_TALL_MAP.put(p, ITEMS.register("pot_tall_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_TALL_MAP.get(p).get(), getPotProperty())));
             POT_VASE_MAP.put(p, ITEMS.register("pot_vase_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_VASE_MAP.get(p).get(), getPotProperty())));
-            POT_VASE_LARGE_MAP.put(p, ITEMS.register("pot_vase_large_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_VASE_LARGE_MAP.get(p).get(), getPotProperty())));
+            POT_VASE_LARGE_MAP.put(p, ITEMS.register("pot_vase_large_" + p.getSerializedName(), () -> new MultiBlockItem(BlockRegistry.POT_VASE_LARGE_MAP.get(p).get(), getPotProperty(), PotVaseLargeEntity.getItemStructure(p))));
         });
     }
     
