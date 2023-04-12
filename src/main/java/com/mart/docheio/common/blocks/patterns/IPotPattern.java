@@ -5,5 +5,4 @@ import net.minecraft.util.StringRepresentable;
 public interface IPotPattern extends StringRepresentable {
 
 
-
 }

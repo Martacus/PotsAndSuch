@@ -2,7 +2,6 @@ package com.mart.docheio.common.blocks.pitcher;
 
 import com.mart.docheio.common.blocks.PotBlock;
 import com.mart.docheio.common.blocks.patterns.PotPitcherPattern;
-import com.mart.docheio.common.blocks.patterns.PotPitcherPattern;
 import com.mart.docheio.data.DocheioProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -49,13 +48,13 @@ public class PotPitcherBlock extends PotBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if(pHand == InteractionHand.MAIN_HAND){
-            if(pPlayer.isCrouching()){
+        if (pHand == InteractionHand.MAIN_HAND) {
+            if (pPlayer.isCrouching()) {
                 PotPitcherPattern.BOTTOM p = pState.getValue(BOTTOM_PATTERN);
                 pLevel.setBlockAndUpdate(pPos, pState.setValue(BOTTOM_PATTERN, PotPitcherPattern.BOTTOM.getById(p.getId() + 1)));
             } else {
                 PotPitcherPattern.UPPER p = pState.getValue(TOP_PATTERN);
-                pLevel.setBlockAndUpdate(pPos, pState.setValue(TOP_PATTERN, PotPitcherPattern.UPPER.getById(p.getId() + 1) ));
+                pLevel.setBlockAndUpdate(pPos, pState.setValue(TOP_PATTERN, PotPitcherPattern.UPPER.getById(p.getId() + 1)));
             }
         }
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);

@@ -1,74 +1,256 @@
 {
-	"credit": "Made with Blockbench",
-	"texture_size": [48, 40],
-	"textures": {
-		"pattern_2": "docheio:block/patterns/pot_vase/pot_vase_patterns_neck_stripe"
-	},
-	"elements": [
-		{
-			"name": "Box",
-			"from": [5, 12, 5],
-			"to": [11, 14, 11],
-			"faces": {
-				"north": {"uv": [10, 10, 12, 10.8], "texture": "#pattern_2"},
-				"east": {"uv": [8, 10, 10, 10.8], "texture": "#pattern_2"},
-				"south": {"uv": [14, 10, 16, 10.8], "texture": "#pattern_2"},
-				"west": {"uv": [12, 10, 14, 10.8], "texture": "#pattern_2"},
-				"up": {"uv": [12, 10, 10, 7.6], "texture": "#pattern_2"},
-				"down": {"uv": [14, 7.6, 12, 10], "texture": "#pattern_2"}
-			}
-		},
-		{
-			"name": "Box",
-			"from": [4, 14, 4],
-			"to": [12, 16, 12],
-			"faces": {
-				"north": {"uv": [2.66667, 10.8, 5.33333, 11.6], "texture": "#pattern_2"},
-				"east": {"uv": [0, 10.8, 2.66667, 11.6], "texture": "#pattern_2"},
-				"south": {"uv": [8, 10.8, 10.66667, 11.6], "texture": "#pattern_2"},
-				"west": {"uv": [5.33333, 10.8, 8, 11.6], "texture": "#pattern_2"},
-				"up": {"uv": [5.33333, 10.8, 2.66667, 7.6], "texture": "#pattern_2"},
-				"down": {"uv": [8, 7.6, 5.33333, 10.8], "texture": "#pattern_2"}
-			}
-		}
-	],
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [75, 45, 0],
-			"translation": [0, 2.5, 0],
-			"scale": [0.375, 0.375, 0.375]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [75, 45, 0],
-			"translation": [0, 2.5, 0],
-			"scale": [0.375, 0.375, 0.375]
-		},
-		"firstperson_righthand": {
-			"rotation": [0, 45, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, 225, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"ground": {
-			"translation": [0, 3, 0],
-			"scale": [0.25, 0.25, 0.25]
-		},
-		"gui": {
-			"rotation": [30, 225, 0],
-			"scale": [0.625, 0.625, 0.625]
-		},
-		"fixed": {
-			"scale": [0.5, 0.5, 0.5]
-		}
-	},
-	"groups": [
-		{
-			"name": "main",
-			"origin": [0, 7.5, 0],
-			"color": 0,
-			"children": [0, 1]
-		}
-	]
+  "credit": "Made with Blockbench",
+  "texture_size": [
+    48,
+    40
+  ],
+  "textures": {
+    "pattern_2": "docheio:block/patterns/pot_vase/pot_vase_patterns_neck_stripe"
+  },
+  "elements": [
+    {
+      "name": "Box",
+      "from": [
+        5,
+        12,
+        5
+      ],
+      "to": [
+        11,
+        14,
+        11
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            10,
+            10,
+            12,
+            10.8
+          ],
+          "texture": "#pattern_2"
+        },
+        "east": {
+          "uv": [
+            8,
+            10,
+            10,
+            10.8
+          ],
+          "texture": "#pattern_2"
+        },
+        "south": {
+          "uv": [
+            14,
+            10,
+            16,
+            10.8
+          ],
+          "texture": "#pattern_2"
+        },
+        "west": {
+          "uv": [
+            12,
+            10,
+            14,
+            10.8
+          ],
+          "texture": "#pattern_2"
+        },
+        "up": {
+          "uv": [
+            12,
+            10,
+            10,
+            7.6
+          ],
+          "texture": "#pattern_2"
+        },
+        "down": {
+          "uv": [
+            14,
+            7.6,
+            12,
+            10
+          ],
+          "texture": "#pattern_2"
+        }
+      }
+    },
+    {
+      "name": "Box",
+      "from": [
+        4,
+        14,
+        4
+      ],
+      "to": [
+        12,
+        16,
+        12
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.66667,
+            10.8,
+            5.33333,
+            11.6
+          ],
+          "texture": "#pattern_2"
+        },
+        "east": {
+          "uv": [
+            0,
+            10.8,
+            2.66667,
+            11.6
+          ],
+          "texture": "#pattern_2"
+        },
+        "south": {
+          "uv": [
+            8,
+            10.8,
+            10.66667,
+            11.6
+          ],
+          "texture": "#pattern_2"
+        },
+        "west": {
+          "uv": [
+            5.33333,
+            10.8,
+            8,
+            11.6
+          ],
+          "texture": "#pattern_2"
+        },
+        "up": {
+          "uv": [
+            5.33333,
+            10.8,
+            2.66667,
+            7.6
+          ],
+          "texture": "#pattern_2"
+        },
+        "down": {
+          "uv": [
+            8,
+            7.6,
+            5.33333,
+            10.8
+          ],
+          "texture": "#pattern_2"
+        }
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        2.5,
+        0
+      ],
+      "scale": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        2.5,
+        0
+      ],
+      "scale": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        225,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "gui": {
+      "rotation": [
+        30,
+        225,
+        0
+      ],
+      "scale": [
+        0.625,
+        0.625,
+        0.625
+      ]
+    },
+    "fixed": {
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "groups": [
+    {
+      "name": "main",
+      "origin": [
+        0,
+        7.5,
+        0
+      ],
+      "color": 0,
+      "children": [
+        0,
+        1
+      ]
+    }
+  ]
 }

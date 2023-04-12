@@ -22,7 +22,7 @@ public class PotsMod {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String DOCHEIO = "docheio";
 
-    public PotsMod(){
+    public PotsMod() {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         BlockRegistry.createPots();

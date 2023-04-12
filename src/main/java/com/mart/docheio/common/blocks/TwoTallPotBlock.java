@@ -42,7 +42,7 @@ public class TwoTallPotBlock<T extends LodestoneBlockEntity> extends LodestoneEn
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         DoubleBlockHalf doubleblockhalf = pState.getValue(HALF);
-        if(doubleblockhalf == DoubleBlockHalf.LOWER){
+        if (doubleblockhalf == DoubleBlockHalf.LOWER) {
             return SHAPE_LOWER;
         } else {
             return SHAPE_UPPER;
@@ -82,7 +82,8 @@ public class TwoTallPotBlock<T extends LodestoneBlockEntity> extends LodestoneEn
             return super.canSurvive(pState, pLevel, pPos);
         } else {
             BlockState blockstate = pLevel.getBlockState(pPos.below());
-            if (pState.getBlock() != this) return super.canSurvive(pState, pLevel, pPos); //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
+            if (pState.getBlock() != this)
+                return super.canSurvive(pState, pLevel, pPos); //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
             return blockstate.is(this) && blockstate.getValue(HALF) == DoubleBlockHalf.LOWER;
         }
     }
@@ -101,7 +102,7 @@ public class TwoTallPotBlock<T extends LodestoneBlockEntity> extends LodestoneEn
             if (pPlayer.isCreative()) {
                 preventCreativeDropFromBottomPart(pLevel, pPos, pState, pPlayer);
             } else {
-                dropResources(pState, pLevel, pPos, (BlockEntity)null, pPlayer, pPlayer.getMainHandItem());
+                dropResources(pState, pLevel, pPos, (BlockEntity) null, pPlayer, pPlayer.getMainHandItem());
             }
         }
 

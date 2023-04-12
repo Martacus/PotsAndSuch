@@ -31,7 +31,7 @@ public class PotSmallBlock extends PotBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if(pHand == InteractionHand.MAIN_HAND){
+        if (pHand == InteractionHand.MAIN_HAND) {
             PotSmallPattern.BOTTOM p = pState.getValue(BOTTOM_PATTERN);
             pLevel.setBlockAndUpdate(pPos, pState.setValue(BOTTOM_PATTERN, PotSmallPattern.BOTTOM.getById(p.getId() + 1)));
         }

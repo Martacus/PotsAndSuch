@@ -22,7 +22,7 @@ public class PotAmphoraPattern {
             return name;
         }
 
-        UPPER(int id, String name, String representName){
+        UPPER(int id, String name, String representName) {
             this.id = id;
             this.name = name;
             this.representName = representName;
@@ -32,9 +32,9 @@ public class PotAmphoraPattern {
             return id;
         }
 
-        public static UPPER getById(int i){
-            for(UPPER e : values()){
-                if(i == e.getId()){
+        public static UPPER getById(int i) {
+            for (UPPER e : values()) {
+                if (i == e.getId()) {
                     return e;
                 }
             }
@@ -59,7 +59,7 @@ public class PotAmphoraPattern {
             return name;
         }
 
-        MIDDLE(int id, String name, String representName){
+        MIDDLE(int id, String name, String representName) {
             this.id = id;
             this.name = name;
             this.representName = representName;
@@ -69,9 +69,9 @@ public class PotAmphoraPattern {
             return id;
         }
 
-        public static MIDDLE getById(int i){
-            for(MIDDLE e : values()){
-                if(i == e.getId()){
+        public static MIDDLE getById(int i) {
+            for (MIDDLE e : values()) {
+                if (i == e.getId()) {
                     return e;
                 }
             }
@@ -91,12 +91,13 @@ public class PotAmphoraPattern {
         private final int id;
         private final String name;
         private final String representName;
+
         @Override
         public @NotNull String getSerializedName() {
             return name;
         }
 
-        BOTTOM(int id, String name, String representName){
+        BOTTOM(int id, String name, String representName) {
             this.id = id;
             this.name = name;
             this.representName = representName;
@@ -106,9 +107,9 @@ public class PotAmphoraPattern {
             return id;
         }
 
-        public static BOTTOM getById(int i){
-            for(BOTTOM e : values()){
-                if(i == e.getId()){
+        public static BOTTOM getById(int i) {
+            for (BOTTOM e : values()) {
+                if (i == e.getId()) {
                     return e;
                 }
             }

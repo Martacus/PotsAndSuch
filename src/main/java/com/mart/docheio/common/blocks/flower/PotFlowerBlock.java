@@ -1,9 +1,7 @@
 package com.mart.docheio.common.blocks.flower;
 
 import com.mart.docheio.common.blocks.PotBlock;
-import com.mart.docheio.common.blocks.patterns.PotAmphoraPattern;
 import com.mart.docheio.common.blocks.patterns.PotFlowerPattern;
-import com.mart.docheio.common.blocks.patterns.PotPattern;
 import com.mart.docheio.data.DocheioProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
@@ -33,7 +31,7 @@ public class PotFlowerBlock extends PotBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if(pHand == InteractionHand.MAIN_HAND){
+        if (pHand == InteractionHand.MAIN_HAND) {
             PotFlowerPattern.BOTTOM p = pState.getValue(BOTTOM_PATTERN);
             pLevel.setBlockAndUpdate(pPos, pState.setValue(BOTTOM_PATTERN, PotFlowerPattern.BOTTOM.getById(p.getId() + 1)));
         }

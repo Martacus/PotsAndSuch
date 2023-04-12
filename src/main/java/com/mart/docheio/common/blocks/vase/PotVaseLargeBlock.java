@@ -20,7 +20,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import team.lodestar.lodestone.systems.block.LodestoneEntityBlock;
 
-public class VaseLargeBlock extends LodestoneEntityBlock<PotVaseLargeEntity> implements IPotBlock {
+public class PotVaseLargeBlock extends LodestoneEntityBlock<PotVaseLargeEntity> implements IPotBlock {
 
     public static final EnumProperty<PotVaseLargePattern.UPPER> TOP_PATTERN = DocheioProperties.POT_VASE_LARGE_UPPER_PATTERN;
     public static final EnumProperty<PotVaseLargePattern.MIDDLE> MIDDLE_PATTERN = DocheioProperties.POT_VASE_LARGE_MIDDLE_PATTERN;
@@ -28,7 +28,7 @@ public class VaseLargeBlock extends LodestoneEntityBlock<PotVaseLargeEntity> imp
     private final PotColor color;
     protected final VoxelShape SHAPE;
 
-    public VaseLargeBlock(Properties properties, PotColor color, VoxelShape shape) {
+    public PotVaseLargeBlock(Properties properties, PotColor color, VoxelShape shape) {
         super(properties);
         this.color = color;
         this.registerDefaultState(this.getStateDefinition().any()
@@ -43,7 +43,7 @@ public class VaseLargeBlock extends LodestoneEntityBlock<PotVaseLargeEntity> imp
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(TOP_PATTERN, MIDDLE_PATTERN, BOTTOM_PATTERN);
     }
- 
+
 
     @Override
     public PotColor getColor() {
@@ -57,13 +57,13 @@ public class VaseLargeBlock extends LodestoneEntityBlock<PotVaseLargeEntity> imp
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if(pHand == InteractionHand.MAIN_HAND){
-            if(pPlayer.isCrouching()){
+        if (pHand == InteractionHand.MAIN_HAND) {
+            if (pPlayer.isCrouching()) {
                 PotVaseLargePattern.BOTTOM p = pState.getValue(BOTTOM_PATTERN);
                 pLevel.setBlockAndUpdate(pPos, pState.setValue(BOTTOM_PATTERN, PotVaseLargePattern.BOTTOM.getById(p.getId() + 1)));
             } else {
                 PotVaseLargePattern.MIDDLE p = pState.getValue(MIDDLE_PATTERN);
-                pLevel.setBlockAndUpdate(pPos, pState.setValue(MIDDLE_PATTERN, PotVaseLargePattern.MIDDLE.getById(p.getId() + 1) ));
+                pLevel.setBlockAndUpdate(pPos, pState.setValue(MIDDLE_PATTERN, PotVaseLargePattern.MIDDLE.getById(p.getId() + 1)));
             }
         }
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);

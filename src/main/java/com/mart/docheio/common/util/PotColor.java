@@ -1,7 +1,6 @@
 package com.mart.docheio.common.util;
 
 import net.minecraft.util.StringRepresentable;
-import net.minecraft.world.level.material.MaterialColor;
 
 public enum PotColor implements StringRepresentable {
     WHITE(0, "white"),
@@ -26,11 +25,10 @@ public enum PotColor implements StringRepresentable {
     private final int id;
     private final String name;
 
-    PotColor(int pId, String name){
+    PotColor(int pId, String name) {
         this.id = pId;
         this.name = name;
     }
-
 
 
     @Override

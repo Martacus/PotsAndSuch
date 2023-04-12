@@ -13,13 +13,13 @@ import team.lodestar.lodestone.systems.multiblock.MultiBlockStructure;
 
 import java.util.function.Supplier;
 
-public class PotAmphoraEntity extends MultiBlockCoreEntity{
+public class PotAmphoraEntity extends MultiBlockCoreEntity {
 
     public PotAmphoraEntity(BlockPos pos, BlockState state) {
         super(BlockEntityRegistry.POT_AMPHORA.get(), getStructure(state), pos, state);
     }
 
-    private static MultiBlockStructure getStructure(BlockState state){
+    private static MultiBlockStructure getStructure(BlockState state) {
         PotAmphoraBlock block = (PotAmphoraBlock) state.getBlock();
         return MultiBlockStructure.of(new MultiBlockStructure.StructurePiece(0, 1, 0, BlockRegistry.POT_AMPHORA_TOP_MAP.get(block.getColor()).get().defaultBlockState()));
     }
@@ -30,7 +30,7 @@ public class PotAmphoraEntity extends MultiBlockCoreEntity{
         destroyMultiblock(player, level, worldPosition);
     }
 
-    public static Supplier<MultiBlockStructure> getItemStructure(PotColor color){
+    public static Supplier<MultiBlockStructure> getItemStructure(PotColor color) {
         return () -> MultiBlockStructure.of(new MultiBlockStructure.StructurePiece(0, 1, 0,
                 BlockRegistry.POT_AMPHORA_TOP_MAP.get(color).get().defaultBlockState()));
     }

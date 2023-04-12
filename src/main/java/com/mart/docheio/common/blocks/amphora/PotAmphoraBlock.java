@@ -69,13 +69,13 @@ public class PotAmphoraBlock extends LodestoneEntityBlock<PotAmphoraEntity> impl
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if(pHand == InteractionHand.MAIN_HAND){
-            if(pPlayer.isCrouching()){
+        if (pHand == InteractionHand.MAIN_HAND) {
+            if (pPlayer.isCrouching()) {
                 PotAmphoraPattern.BOTTOM p = pState.getValue(BOTTOM_PATTERN);
                 pLevel.setBlockAndUpdate(pPos, pState.setValue(BOTTOM_PATTERN, PotAmphoraPattern.BOTTOM.getById(p.getId() + 1)));
             } else {
                 PotAmphoraPattern.MIDDLE p = pState.getValue(MIDDLE_PATTERN);
-                pLevel.setBlockAndUpdate(pPos, pState.setValue(MIDDLE_PATTERN, PotAmphoraPattern.MIDDLE.getById(p.getId() + 1) ));
+                pLevel.setBlockAndUpdate(pPos, pState.setValue(MIDDLE_PATTERN, PotAmphoraPattern.MIDDLE.getById(p.getId() + 1)));
             }
         }
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);

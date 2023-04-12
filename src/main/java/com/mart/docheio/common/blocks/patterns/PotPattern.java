@@ -15,12 +15,13 @@ public class PotPattern {
         private final int id;
         private final String name;
         private final String representName;
+
         @Override
         public String getSerializedName() {
             return name;
         }
 
-        UPPER(int id, String name, String representName){
+        UPPER(int id, String name, String representName) {
             this.id = id;
             this.name = name;
             this.representName = representName;
@@ -30,9 +31,9 @@ public class PotPattern {
             return id;
         }
 
-        public static UPPER getById(int i){
-            for(UPPER e : values()){
-                if(i == e.getId()){
+        public static UPPER getById(int i) {
+            for (UPPER e : values()) {
+                if (i == e.getId()) {
                     return e;
                 }
             }
@@ -52,12 +53,13 @@ public class PotPattern {
         private final int id;
         private final String name;
         private final String representName;
+
         @Override
         public String getSerializedName() {
             return name;
         }
 
-        BOTTOM(int id, String name, String representName){
+        BOTTOM(int id, String name, String representName) {
             this.id = id;
             this.name = name;
             this.representName = representName;
@@ -67,9 +69,9 @@ public class PotPattern {
             return id;
         }
 
-        public static BOTTOM getById(int i){
-            for(BOTTOM e : values()){
-                if(i == e.getId()){
+        public static BOTTOM getById(int i) {
+            for (BOTTOM e : values()) {
+                if (i == e.getId()) {
                     return e;
                 }
             }

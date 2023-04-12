@@ -1,7 +1,6 @@
 package com.mart.docheio.common.blockentity;
 
-import com.mart.docheio.common.blocks.amphora.PotAmphoraBlock;
-import com.mart.docheio.common.blocks.vase.VaseLargeBlock;
+import com.mart.docheio.common.blocks.vase.PotVaseLargeBlock;
 import com.mart.docheio.common.registry.blocks.BlockRegistry;
 import com.mart.docheio.common.registry.entity.BlockEntityRegistry;
 import com.mart.docheio.common.util.PotColor;
@@ -20,8 +19,8 @@ public class PotVaseLargeEntity extends MultiBlockCoreEntity {
         super(BlockEntityRegistry.POT_VASE_LARGE.get(), getStructure(state), pos, state);
     }
 
-    private static MultiBlockStructure getStructure(BlockState state){
-        VaseLargeBlock block = (VaseLargeBlock) state.getBlock();
+    private static MultiBlockStructure getStructure(BlockState state) {
+        PotVaseLargeBlock block = (PotVaseLargeBlock) state.getBlock();
         return MultiBlockStructure.of(new MultiBlockStructure.StructurePiece(0, 1, 0, BlockRegistry.POT_VASE_LARGE_TOP_MAP.get(block.getColor()).get().defaultBlockState()));
     }
 
@@ -31,7 +30,7 @@ public class PotVaseLargeEntity extends MultiBlockCoreEntity {
         destroyMultiblock(player, level, worldPosition);
     }
 
-    public static Supplier<MultiBlockStructure> getItemStructure(PotColor color){
+    public static Supplier<MultiBlockStructure> getItemStructure(PotColor color) {
         return () -> MultiBlockStructure.of(new MultiBlockStructure.StructurePiece(0, 1, 0,
                 BlockRegistry.POT_VASE_LARGE_TOP_MAP.get(color).get().defaultBlockState()));
     }

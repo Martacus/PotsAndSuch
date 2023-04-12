@@ -5,10 +5,7 @@ import com.mart.docheio.common.util.PotColor;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
-import javax.annotation.Nonnull;
-
-public class DocheioTab extends CreativeModeTab
-{
+public class DocheioTab extends CreativeModeTab {
     public static final DocheioTab INSTANCE = new DocheioTab();
 
     public DocheioTab() {

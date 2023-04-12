@@ -22,7 +22,7 @@ public class PotJugLargePattern {
             return name;
         }
 
-        UPPER(int id, String name, String representName){
+        UPPER(int id, String name, String representName) {
             this.id = id;
             this.name = name;
             this.representName = representName;
@@ -32,9 +32,9 @@ public class PotJugLargePattern {
             return id;
         }
 
-        public static PotJugLargePattern.UPPER getById(int i){
-            for(PotJugLargePattern.UPPER e : values()){
-                if(i == e.getId()){
+        public static PotJugLargePattern.UPPER getById(int i) {
+            for (PotJugLargePattern.UPPER e : values()) {
+                if (i == e.getId()) {
                     return e;
                 }
             }
@@ -59,7 +59,7 @@ public class PotJugLargePattern {
             return name;
         }
 
-        MIDDLE(int id, String name, String representName){
+        MIDDLE(int id, String name, String representName) {
             this.id = id;
             this.name = name;
             this.representName = representName;
@@ -69,9 +69,9 @@ public class PotJugLargePattern {
             return id;
         }
 
-        public static PotJugLargePattern.MIDDLE getById(int i){
-            for(PotJugLargePattern.MIDDLE e : values()){
-                if(i == e.getId()){
+        public static PotJugLargePattern.MIDDLE getById(int i) {
+            for (PotJugLargePattern.MIDDLE e : values()) {
+                if (i == e.getId()) {
                     return e;
                 }
             }
@@ -91,12 +91,13 @@ public class PotJugLargePattern {
         private final int id;
         private final String name;
         private final String representName;
+
         @Override
         public @NotNull String getSerializedName() {
             return name;
         }
 
-        BOTTOM(int id, String name, String representName){
+        BOTTOM(int id, String name, String representName) {
             this.id = id;
             this.name = name;
             this.representName = representName;
@@ -106,14 +107,14 @@ public class PotJugLargePattern {
             return id;
         }
 
-        public static PotJugLargePattern.BOTTOM getById(int i){
-            for(PotJugLargePattern.BOTTOM e : values()){
-                if(i == e.getId()){
+        public static PotJugLargePattern.BOTTOM getById(int i) {
+            for (PotJugLargePattern.BOTTOM e : values()) {
+                if (i == e.getId()) {
                     return e;
                 }
             }
             return PotJugLargePattern.BOTTOM.TRANSPARENT;
         }
     }
-    
+
 }

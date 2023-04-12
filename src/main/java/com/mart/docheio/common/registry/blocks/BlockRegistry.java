@@ -1,7 +1,7 @@
 package com.mart.docheio.common.registry.blocks;
 
 import com.mart.docheio.PotsMod;
-import com.mart.docheio.common.blocks.*;
+import com.mart.docheio.common.blocks.PotteryWheelBlock;
 import com.mart.docheio.common.blocks.amphora.PotAmphoraBlock;
 import com.mart.docheio.common.blocks.amphora.PotAmphoraComponentBlock;
 import com.mart.docheio.common.blocks.flower.PotFlowerBlock;
@@ -15,8 +15,8 @@ import com.mart.docheio.common.blocks.pot.PotPotBlock;
 import com.mart.docheio.common.blocks.pot.PotSmallBlock;
 import com.mart.docheio.common.blocks.pot.PotTallBlock;
 import com.mart.docheio.common.blocks.vase.PotVaseBlock;
-import com.mart.docheio.common.blocks.vase.VaseLargeBlock;
-import com.mart.docheio.common.blocks.vase.VaseLargeTopBlock;
+import com.mart.docheio.common.blocks.vase.PotVaseLargeBlock;
+import com.mart.docheio.common.blocks.vase.PotVaseLargeTopBlock;
 import com.mart.docheio.common.registry.entity.BlockEntityRegistry;
 import com.mart.docheio.common.util.PotColor;
 import net.minecraft.world.level.block.Block;
@@ -51,7 +51,7 @@ public class BlockRegistry {
     public static final VoxelShape SHAPE_SMALL = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 9.0D, 12.0D);
     public static final VoxelShape SHAPE_TALL = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 14.0D, 13.0D);
     public static final VoxelShape SHAPE_VASE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 16.0D, 13.0D);
-    public static final VoxelShape SHAPE_VASE_LARGE_LOWER  = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 28.0D, 13.0D);
+    public static final VoxelShape SHAPE_VASE_LARGE_LOWER = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 28.0D, 13.0D);
     public static final VoxelShape SHAPE_VASE_LARGE_UPPER = Block.box(3.0D, -16.0D, 3.0D, 13.0D, 12.0D, 13.0D);
 
     public static final HashMap<PotColor, RegistryObject<Block>> POT_MAP = new HashMap<>();
@@ -70,10 +70,11 @@ public class BlockRegistry {
     public static final HashMap<PotColor, RegistryObject<Block>> POT_VASE_LARGE_MAP = new HashMap<>();
     public static final HashMap<PotColor, RegistryObject<Block>> POT_VASE_LARGE_TOP_MAP = new HashMap<>();
     public static final RegistryObject<Block> POTTERY_WHEEL = BLOCKS.register("pottery_wheel", () -> new PotteryWheelBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
-    public static void createPots(){
+
+    public static void createPots() {
         Arrays.stream(PotColor.values()).toList().forEach(p -> {
             POT_MAP.put(p, BLOCKS.register("pot_" + p.getSerializedName(),
-                    () -> new PotPotBlock(POT_PROPERTIES, SHAPE_POT)));
+                    () -> new PotPotBlock(POT_PROPERTIES, SHAPE_POT).setBlockEntity(BlockEntityRegistry.POT)));
             POT_AMPHORA_MAP.put(p, BLOCKS.register("pot_amphora_" + p.getSerializedName(),
                     () -> new PotAmphoraBlock(POT_PROPERTIES, p, SHAPE_AMPHORA_LOWER).setBlockEntity(BlockEntityRegistry.POT_AMPHORA)));
             POT_AMPHORA_TOP_MAP.put(p, BLOCKS.register("pot_amphora_component_" + p.getSerializedName(),
@@ -99,9 +100,9 @@ public class BlockRegistry {
             POT_VASE_MAP.put(p, BLOCKS.register("pot_vase_" + p.getSerializedName(),
                     () -> new PotVaseBlock(POT_PROPERTIES, SHAPE_VASE)));
             POT_VASE_LARGE_MAP.put(p, BLOCKS.register("pot_vase_large_" + p.getSerializedName(),
-                    () -> new VaseLargeBlock(POT_PROPERTIES, p, SHAPE_VASE_LARGE_LOWER).setBlockEntity(BlockEntityRegistry.POT_VASE_LARGE)));
+                    () -> new PotVaseLargeBlock(POT_PROPERTIES, p, SHAPE_VASE_LARGE_LOWER).setBlockEntity(BlockEntityRegistry.POT_VASE_LARGE)));
             POT_VASE_LARGE_TOP_MAP.put(p, BLOCKS.register("pot_vase_large_top_" + p.getSerializedName(),
-                    () -> new VaseLargeTopBlock(POT_PROPERTIES, SHAPE_VASE_LARGE_UPPER)));
+                    () -> new PotVaseLargeTopBlock(POT_PROPERTIES, SHAPE_VASE_LARGE_UPPER)));
         });
     }
 

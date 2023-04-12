@@ -16,12 +16,13 @@ public class PotPlanterPattern {
         private final int id;
         private final String name;
         private final String representName;
+
         @Override
         public String getSerializedName() {
             return name;
         }
 
-        UPPER(int id, String name, String representName){
+        UPPER(int id, String name, String representName) {
             this.id = id;
             this.name = name;
             this.representName = representName;
@@ -31,9 +32,9 @@ public class PotPlanterPattern {
             return id;
         }
 
-        public static PotPlanterPattern.UPPER getById(int i){
-            for(PotPlanterPattern.UPPER e : values()){
-                if(i == e.getId()){
+        public static PotPlanterPattern.UPPER getById(int i) {
+            for (PotPlanterPattern.UPPER e : values()) {
+                if (i == e.getId()) {
                     return e;
                 }
             }
@@ -53,12 +54,13 @@ public class PotPlanterPattern {
         private final int id;
         private final String name;
         private final String representName;
+
         @Override
         public String getSerializedName() {
             return name;
         }
 
-        BOTTOM(int id, String name, String representName){
+        BOTTOM(int id, String name, String representName) {
             this.id = id;
             this.name = name;
             this.representName = representName;
@@ -68,9 +70,9 @@ public class PotPlanterPattern {
             return id;
         }
 
-        public static PotPlanterPattern.BOTTOM getById(int i){
-            for(PotPlanterPattern.BOTTOM e : values()){
-                if(i == e.getId()){
+        public static PotPlanterPattern.BOTTOM getById(int i) {
+            for (PotPlanterPattern.BOTTOM e : values()) {
+                if (i == e.getId()) {
                     return e;
                 }
             }

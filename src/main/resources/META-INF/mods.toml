@@ -1,13 +1,12 @@
-
-modLoader="javafml"
-loaderVersion="[39,)"
-license="All rights reserved"
+modLoader = "javafml"
+loaderVersion = "[39,)"
+license = "All rights reserved"
 [[mods]]
-logoFile="docheio.png"
-modId="docheio"
-version="${file.jarVersion}"
-displayName="Docheio"
-authors="Martacus; Probleyes"
-description='''
+logoFile = "docheio.png"
+modId = "docheio"
+version = "${file.jarVersion}"
+displayName = "Docheio"
+authors = "Martacus; Probleyes"
+description = '''
 A Pot decoration mod
 '''

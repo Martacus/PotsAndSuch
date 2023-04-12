@@ -16,12 +16,13 @@ public class PotFlowerPattern {
         private final int id;
         private final String name;
         private final String representName;
+
         @Override
         public @NotNull String getSerializedName() {
             return name;
         }
 
-        BOTTOM(int id, String name, String representName){
+        BOTTOM(int id, String name, String representName) {
             this.id = id;
             this.name = name;
             this.representName = representName;
@@ -31,9 +32,9 @@ public class PotFlowerPattern {
             return id;
         }
 
-        public static PotFlowerPattern.BOTTOM getById(int i){
-            for(PotFlowerPattern.BOTTOM e : values()){
-                if(i == e.getId()){
+        public static PotFlowerPattern.BOTTOM getById(int i) {
+            for (PotFlowerPattern.BOTTOM e : values()) {
+                if (i == e.getId()) {
                     return e;
                 }
             }

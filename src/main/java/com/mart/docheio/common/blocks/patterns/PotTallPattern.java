@@ -17,12 +17,13 @@ public class PotTallPattern {
         private final int id;
         private final String name;
         private final String representName;
+
         @Override
         public @NotNull String getSerializedName() {
             return name;
         }
 
-        BOTTOM(int id, String name, String representName){
+        BOTTOM(int id, String name, String representName) {
             this.id = id;
             this.name = name;
             this.representName = representName;
@@ -32,9 +33,9 @@ public class PotTallPattern {
             return id;
         }
 
-        public static PotTallPattern.BOTTOM getById(int i){
-            for(PotTallPattern.BOTTOM e : values()){
-                if(i == e.getId()){
+        public static PotTallPattern.BOTTOM getById(int i) {
+            for (PotTallPattern.BOTTOM e : values()) {
+                if (i == e.getId()) {
                     return e;
                 }
             }

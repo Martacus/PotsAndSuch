@@ -32,7 +32,7 @@ public class DocheioItems {
     public static final HashMap<PotColor, RegistryObject<Item>> POT_VASE_LARGE_MAP = new HashMap<>();
     public static final RegistryObject<Item> POTTERY_WHEEL = ITEMS.register("pottery_wheel", () -> new BlockItem(BlockRegistry.POTTERY_WHEEL.get(), getPotProperty()));
 
-    public static void createPots(){
+    public static void createPots() {
         Arrays.stream(PotColor.values()).toList().forEach(p -> {
             POT_MAP.put(p, ITEMS.register("pot_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_MAP.get(p).get(), getPotProperty())));
             POT_AMPHORA_MAP.put(p, ITEMS.register("pot_amphora_" + p.getSerializedName(), () -> new MultiBlockItem(BlockRegistry.POT_AMPHORA_MAP.get(p).get(), getPotProperty(), PotAmphoraEntity.getItemStructure(p))));
@@ -48,8 +48,8 @@ public class DocheioItems {
             POT_VASE_LARGE_MAP.put(p, ITEMS.register("pot_vase_large_" + p.getSerializedName(), () -> new MultiBlockItem(BlockRegistry.POT_VASE_LARGE_MAP.get(p).get(), getPotProperty(), PotVaseLargeEntity.getItemStructure(p))));
         });
     }
-    
-    public static Item.Properties getPotProperty(){
+
+    public static Item.Properties getPotProperty() {
         return new Item.Properties().tab(DocheioTab.INSTANCE).stacksTo(1);
     }
 }

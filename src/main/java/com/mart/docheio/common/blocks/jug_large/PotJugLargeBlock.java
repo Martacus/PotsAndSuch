@@ -27,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import team.lodestar.lodestone.systems.block.LodestoneEntityBlock;
 
-public class PotJugLargeBlock  extends LodestoneEntityBlock<PotJugLargeEntity> implements IPotBlock {
+public class PotJugLargeBlock extends LodestoneEntityBlock<PotJugLargeEntity> implements IPotBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final EnumProperty<PotJugLargePattern.UPPER> UPPER_PATTERN = DocheioProperties.POT_JUG_LARGE_TOP_PATTERN;
     public static final EnumProperty<PotJugLargePattern.MIDDLE> MIDDLE_PATTERN = DocheioProperties.POT_JUG_LARGE_MIDDLE_PATTERN;
@@ -69,13 +69,13 @@ public class PotJugLargeBlock  extends LodestoneEntityBlock<PotJugLargeEntity> i
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if(pHand == InteractionHand.MAIN_HAND){
-            if(pPlayer.isCrouching()){
+        if (pHand == InteractionHand.MAIN_HAND) {
+            if (pPlayer.isCrouching()) {
                 PotJugLargePattern.UPPER p = pState.getValue(UPPER_PATTERN);
                 pLevel.setBlockAndUpdate(pPos, pState.setValue(UPPER_PATTERN, PotJugLargePattern.UPPER.getById(p.getId() + 1)));
             } else {
                 PotJugLargePattern.MIDDLE p = pState.getValue(MIDDLE_PATTERN);
-                pLevel.setBlockAndUpdate(pPos, pState.setValue(MIDDLE_PATTERN, PotJugLargePattern.MIDDLE.getById(p.getId() + 1) ));
+                pLevel.setBlockAndUpdate(pPos, pState.setValue(MIDDLE_PATTERN, PotJugLargePattern.MIDDLE.getById(p.getId() + 1)));
             }
         }
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);

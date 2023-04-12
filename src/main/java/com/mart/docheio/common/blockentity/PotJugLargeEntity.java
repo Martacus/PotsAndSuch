@@ -19,7 +19,7 @@ public class PotJugLargeEntity extends MultiBlockCoreEntity {
         super(BlockEntityRegistry.POT_JUG_LARGE.get(), getStructure(state), pos, state);
     }
 
-    private static MultiBlockStructure getStructure(BlockState state){
+    private static MultiBlockStructure getStructure(BlockState state) {
         PotJugLargeBlock block = (PotJugLargeBlock) state.getBlock();
         return MultiBlockStructure.of(new MultiBlockStructure.StructurePiece(0, 1, 0, BlockRegistry.POT_JUG_LARGE_TOP_MAP.get(block.getColor()).get().defaultBlockState()));
     }
@@ -30,7 +30,7 @@ public class PotJugLargeEntity extends MultiBlockCoreEntity {
         destroyMultiblock(player, level, worldPosition);
     }
 
-    public static Supplier<MultiBlockStructure> getItemStructure(PotColor color){
+    public static Supplier<MultiBlockStructure> getItemStructure(PotColor color) {
         return () -> MultiBlockStructure.of(new MultiBlockStructure.StructurePiece(0, 1, 0,
                 BlockRegistry.POT_JUG_LARGE_TOP_MAP.get(color).get().defaultBlockState()));
     }
