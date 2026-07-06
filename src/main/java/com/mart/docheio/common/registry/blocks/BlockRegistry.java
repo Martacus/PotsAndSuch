@@ -1,7 +1,6 @@
 package com.mart.docheio.common.registry.blocks;
 
 import com.mart.docheio.PotsMod;
-import com.mart.docheio.common.blocks.PotBlock;
 import com.mart.docheio.common.blocks.PotEntityBlock;
 import com.mart.docheio.common.blocks.PotteryWheelBlock;
 import com.mart.docheio.common.blocks.TallPotBlock;
@@ -59,23 +58,23 @@ public class BlockRegistry {
             POT_AMPHORA_MAP.put(p, BLOCKS.register("pot_amphora_" + p.getSerializedName(),
                     () -> new TallPotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_AMPHORA_LOWER, SHAPE_AMPHORA_UPPER)));
             POT_FLOWER_MAP.put(p, BLOCKS.register("pot_flower_" + p.getSerializedName(),
-                    () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_FLOWER)));
+                    () -> new PotEntityBlock<>(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_FLOWER).setBlockEntity(BlockEntityRegistry.POT)));
             POT_JUG_MAP.put(p, BLOCKS.register("pot_jug_" + p.getSerializedName(),
-                    () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_JUG)));
+                    () -> new PotEntityBlock<>(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_JUG).setBlockEntity(BlockEntityRegistry.POT)));
             POT_JUG_LARGE_MAP.put(p, BLOCKS.register("pot_jug_large_" + p.getSerializedName(),
-                    () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_JUG_LARGE)));
+                    () -> new PotEntityBlock<>(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_JUG_LARGE).setBlockEntity(BlockEntityRegistry.POT)));
             POT_PITCHER_MAP.put(p, BLOCKS.register("pot_pitcher_" + p.getSerializedName(),
-                    () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_PITCHER)));
+                    () -> new PotEntityBlock<>(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_PITCHER).setBlockEntity(BlockEntityRegistry.POT)));
             POT_PLANTER_MAP.put(p, BLOCKS.register("pot_planter_" + p.getSerializedName(),
-                    () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_PLANTER)));
+                    () -> new PotEntityBlock<>(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_PLANTER).setBlockEntity(BlockEntityRegistry.POT)));
             POT_PLANTER_SMALL_MAP.put(p, BLOCKS.register("pot_planter_small_" + p.getSerializedName(),
-                    () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_PLANTER_SMALL)));
+                    () -> new PotEntityBlock<>(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_PLANTER_SMALL).setBlockEntity(BlockEntityRegistry.POT)));
             POT_SMALL_MAP.put(p, BLOCKS.register("pot_small_" + p.getSerializedName(),
-                    () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_SMALL)));
+                    () -> new PotEntityBlock<>(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_SMALL).setBlockEntity(BlockEntityRegistry.POT)));
             POT_TALL_MAP.put(p, BLOCKS.register("pot_tall_" + p.getSerializedName(),
-                    () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_TALL)));
+                    () -> new PotEntityBlock<>(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_TALL).setBlockEntity(BlockEntityRegistry.POT)));
             POT_VASE_MAP.put(p, BLOCKS.register("pot_vase_" + p.getSerializedName(),
-                    () -> new PotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_VASE)));
+                    () -> new PotEntityBlock<>(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_VASE).setBlockEntity(BlockEntityRegistry.POT)));
             POT_VASE_LARGE_MAP.put(p, BLOCKS.register("pot_vase_large_" + p.getSerializedName(),
                     () -> new TallPotBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion(), SHAPE_VASE_LARGE_LOWER, SHAPE_VASE_LARGE_UPPER)));
         });

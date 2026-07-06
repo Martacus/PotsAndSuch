@@ -1,8 +1,9 @@
 package com.mart.docheio.common.blocks;
 
 import com.mart.docheio.common.blockentity.PotBlockEntity;
+import com.mart.docheio.common.util.PotPatterns;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -18,6 +19,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 public class PotEntityBlock<T extends PotBlockEntity> extends PotBlock implements EntityBlock {
@@ -58,21 +60,9 @@ public class PotEntityBlock<T extends PotBlockEntity> extends PotBlock implement
     }
 
     // TODO(debug): temporary way to prove the pattern pipeline renders. Right-click
-    // cycles a pattern onto its natural slot; sneak-right-click with an empty hand
-    // clears all patterns. Replace with the real (pottery wheel / apply-item) flow.
-    private static final ResourceLocation[] DEBUG_PATTERNS = {
-            new ResourceLocation("docheio", "block/pattern/pot_pattern_blocks"),
-            new ResourceLocation("docheio", "block/pattern/pot_pattern_bold"),
-            new ResourceLocation("docheio", "block/pattern/pot_pattern_checkers"),
-            new ResourceLocation("docheio", "block/pattern/pot_pattern_eyes"),
-            new ResourceLocation("docheio", "block/pattern/pot_pattern_inverse_eyes"),
-            new ResourceLocation("docheio", "block/pattern/pot_pattern_linespeck"),
-            new ResourceLocation("docheio", "block/pattern/pot_pattern_rim_blocks"),
-            new ResourceLocation("docheio", "block/pattern/pot_pattern_rim_specks"),
-            new ResourceLocation("docheio", "block/pattern/pot_pattern_wiggle"),
-            new ResourceLocation("docheio", "block/pattern/pot_pattern_zag"),
-    };
-
+    // cycles this shape's patterns onto their natural slots; sneak-right-click with an
+    // empty hand clears all patterns. Replace with the real (pottery wheel / apply-item)
+    // flow.
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player,
                                  InteractionHand hand, BlockHitResult hit) {
@@ -88,9 +78,15 @@ public class PotEntityBlock<T extends PotBlockEntity> extends PotBlock implement
             }
             return InteractionResult.CONSUME;
         }
-        ResourceLocation next = DEBUG_PATTERNS[debugIndex++ % DEBUG_PATTERNS.length];
-        String name = next.getPath();
-        pot.setPattern(PotBlockEntity.PatternSlot.fromPatternName(name), next);
+        String shape = PotPatterns.shapeOf(ForgeRegistries.BLOCKS.getKey(state.getBlock()).getPath());
+        List<String> patterns = PotPatterns.forShape(shape);
+        if (patterns.isEmpty()) {
+            return InteractionResult.PASS;
+        }
+        String pattern = patterns.get(Math.floorMod(debugIndex++, patterns.size()));
+        String modelName = PotPatterns.modelName(shape, pattern);
+        pot.setPattern(PotBlockEntity.PatternSlot.fromPatternName(modelName),
+                PotPatterns.modelId(shape, pattern));
         return InteractionResult.CONSUME;
     }
 
