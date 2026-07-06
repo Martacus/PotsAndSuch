@@ -1,0 +1,23 @@
+{
+  "skill_name": "pot-textures",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The jug pot has the same see-through seam between the body and the spout that the basic pot had. Fix its model and textures.",
+      "expected_output": "Runs check on pot_jug, pads its textures to a power-of-two canvas, runs fix-model on pot_jug.json, asks the user to hand-fill pot_jug_normal.png before regenerating colors with changer.py, and does not stretch any art.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I just re-exported pot_tall.json from Blockbench and now every colored tall pot renders with the plain clay texture. What happened?",
+      "expected_output": "Explains that Blockbench renamed the 'all' texture variable to '0' and hardcoded a texture, which breaks the datagen color models and pattern overlays; runs fix-model (both _lower/_upper parts if present) and verifies with check.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I repainted pot_pitcher_normal.png to fill in the texture bleed, can you regenerate all the pitcher colors from it?",
+      "expected_output": "Runs check first (palette conformance + border audit), then runs changer.py on pot_pitcher_normal.png producing the 17 color variants, and re-runs check to confirm sizes and palettes.",
+      "files": []
+    }
+  ]
+}
