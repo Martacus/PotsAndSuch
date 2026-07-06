@@ -20,18 +20,18 @@ public class BlockEntityRegistry {
 
     public static final RegistryObject<BlockEntityType<PotBlockEntity>> POT = BLOCK_ENTITY_TYPES.register("pot",
             () -> BlockEntityType.Builder.of(PotBlockEntity::new, allPotsOfType(
-                    BlockRegistry.POT_MAP,
-                    BlockRegistry.POT_FLOWER_MAP,
-                    BlockRegistry.POT_JUG_MAP,
-                    BlockRegistry.POT_JUG_LARGE_MAP,
-                    BlockRegistry.POT_PITCHER_MAP,
-                    BlockRegistry.POT_PLANTER_MAP,
-                    BlockRegistry.POT_PLANTER_SMALL_MAP,
-                    BlockRegistry.POT_SMALL_MAP,
-                    BlockRegistry.POT_TALL_MAP,
-                    BlockRegistry.POT_VASE_MAP,
-                    BlockRegistry.POT_AMPHORA_MAP,
-                    BlockRegistry.POT_VASE_LARGE_MAP)).build(null));
+                    BlockRegistry.POT,
+                    BlockRegistry.POT_FLOWER,
+                    BlockRegistry.POT_JUG,
+                    BlockRegistry.POT_JUG_LARGE,
+                    BlockRegistry.POT_PITCHER,
+                    BlockRegistry.POT_PLANTER,
+                    BlockRegistry.POT_PLANTER_SMALL,
+                    BlockRegistry.POT_SMALL,
+                    BlockRegistry.POT_TALL,
+                    BlockRegistry.POT_VASE,
+                    BlockRegistry.POT_AMPHORA,
+                    BlockRegistry.POT_VASE_LARGE)).build(null));
 
     @Mod.EventBusSubscriber(modid = PotsMod.DOCHEIO, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ClientOnly {

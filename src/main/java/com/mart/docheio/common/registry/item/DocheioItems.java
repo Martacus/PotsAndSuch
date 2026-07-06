@@ -30,18 +30,18 @@ public class DocheioItems {
 
     public static void createPots(){
         Arrays.stream(PotColor.values()).toList().forEach(p -> {
-            POT_MAP.put(p, ITEMS.register("pot_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_MAP.get(p).get(), new Item.Properties().stacksTo(1))));
-            POT_AMPHORA_MAP.put(p, ITEMS.register("pot_amphora_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_AMPHORA_MAP.get(p).get(), new Item.Properties().stacksTo(1))));
-            POT_FLOWER_MAP.put(p, ITEMS.register("pot_flower_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_FLOWER_MAP.get(p).get(), new Item.Properties().stacksTo(1))));
-            POT_JUG_MAP.put(p, ITEMS.register("pot_jug_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_JUG_MAP.get(p).get(), new Item.Properties().stacksTo(1))));
-            POT_JUG_LARGE_MAP.put(p, ITEMS.register("pot_jug_large_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_JUG_LARGE_MAP.get(p).get(), new Item.Properties().stacksTo(1))));
-            POT_PITCHER_MAP.put(p, ITEMS.register("pot_pitcher_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_PITCHER_MAP.get(p).get(), new Item.Properties().stacksTo(1))));
-            POT_PLANTER_MAP.put(p, ITEMS.register("pot_planter_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_PLANTER_MAP.get(p).get(), new Item.Properties().stacksTo(1))));
-            POT_PLANTER_SMALL_MAP.put(p, ITEMS.register("pot_planter_small_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_PLANTER_SMALL_MAP.get(p).get(), new Item.Properties().stacksTo(1))));
-            POT_SMALL_MAP.put(p, ITEMS.register("pot_small_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_SMALL_MAP.get(p).get(), new Item.Properties().stacksTo(1))));
-            POT_TALL_MAP.put(p, ITEMS.register("pot_tall_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_TALL_MAP.get(p).get(), new Item.Properties().stacksTo(1))));
-            POT_VASE_MAP.put(p, ITEMS.register("pot_vase_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_VASE_MAP.get(p).get(), new Item.Properties().stacksTo(1))));
-            POT_VASE_LARGE_MAP.put(p, ITEMS.register("pot_vase_large_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_VASE_LARGE_MAP.get(p).get(), new Item.Properties().stacksTo(1))));
+            POT_MAP.put(p, ITEMS.register("pot_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT.get(p).get(), new Item.Properties().stacksTo(1))));
+            POT_AMPHORA_MAP.put(p, ITEMS.register("pot_amphora_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_AMPHORA.get(p).get(), new Item.Properties().stacksTo(1))));
+            POT_FLOWER_MAP.put(p, ITEMS.register("pot_flower_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_FLOWER.get(p).get(), new Item.Properties().stacksTo(1))));
+            POT_JUG_MAP.put(p, ITEMS.register("pot_jug_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_JUG.get(p).get(), new Item.Properties().stacksTo(1))));
+            POT_JUG_LARGE_MAP.put(p, ITEMS.register("pot_jug_large_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_JUG_LARGE.get(p).get(), new Item.Properties().stacksTo(1))));
+            POT_PITCHER_MAP.put(p, ITEMS.register("pot_pitcher_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_PITCHER.get(p).get(), new Item.Properties().stacksTo(1))));
+            POT_PLANTER_MAP.put(p, ITEMS.register("pot_planter_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_PLANTER.get(p).get(), new Item.Properties().stacksTo(1))));
+            POT_PLANTER_SMALL_MAP.put(p, ITEMS.register("pot_planter_small_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_PLANTER_SMALL.get(p).get(), new Item.Properties().stacksTo(1))));
+            POT_SMALL_MAP.put(p, ITEMS.register("pot_small_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_SMALL.get(p).get(), new Item.Properties().stacksTo(1))));
+            POT_TALL_MAP.put(p, ITEMS.register("pot_tall_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_TALL.get(p).get(), new Item.Properties().stacksTo(1))));
+            POT_VASE_MAP.put(p, ITEMS.register("pot_vase_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_VASE.get(p).get(), new Item.Properties().stacksTo(1))));
+            POT_VASE_LARGE_MAP.put(p, ITEMS.register("pot_vase_large_" + p.getSerializedName(), () -> new BlockItem(BlockRegistry.POT_VASE_LARGE.get(p).get(), new Item.Properties().stacksTo(1))));
         });
     }
 }
