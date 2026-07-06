@@ -8,6 +8,7 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import static com.mart.docheio.PotsMod.docheioPath;
 
@@ -25,8 +26,11 @@ import static com.mart.docheio.PotsMod.docheioPath;
  * in a pattern name select which {@link com.mart.docheio.common.blockentity.PotBlockEntity.PatternSlot}
  * it paints, so a pot can wear one pattern per region simultaneously.
  *
- * <p>Only the single-block shapes are listed here. The multi-block amphora and
- * vase_large are deferred until their two-half rendering is designed.
+ * <p>The multi-block amphora and vase_large ({@link #MULTIBLOCK}) render as two
+ * stacked halves that share one texture; their overlay models are generated as
+ * {@code _lower}/{@code _upper} pairs (each half's template samples its own
+ * region of the shared pattern texture), so at apply time both halves are set —
+ * see {@link #halfModelId}.
  */
 public final class PotPatterns {
 
@@ -53,7 +57,23 @@ public final class PotPatterns {
         m.put("pot_tall", List.of("blocks", "chevron", "edges", "full_stripes", "striped"));
         m.put("pot_vase", List.of("blocks", "checkers", "eyes", "eyes_inverse",
                 "neck_stripe", "rim_specks", "soul", "stripes", "wiggle", "zag"));
+        m.put("pot_amphora", List.of("chevron", "eyes", "hide", "low_eyes",
+                "low_stripes", "low_wiggle", "low_zag", "neck_eyes", "neck_hide",
+                "neck_stitch", "neck_stripes", "stitch", "stripe", "wiggle", "zag"));
+        m.put("pot_vase_large", List.of("blocks", "checkers", "chevron", "eye",
+                "hide", "low_blocks", "low_checkers", "neck_chevron", "neck_eye",
+                "neck_specks", "neck_stripes", "pray", "squint", "stripes", "wiggle"));
         return Collections.unmodifiableMap(m);
+    }
+
+    /** Shapes rendered as two stacked halves; their overlay models come in _lower/_upper pairs. */
+    public static final Set<String> MULTIBLOCK = Set.of("pot_amphora", "pot_vase_large");
+
+    /** The two half suffixes used in multi-block template + overlay model names. */
+    public static final List<String> HALVES = List.of("lower", "upper");
+
+    public static boolean isMultiblock(String shape) {
+        return MULTIBLOCK.contains(shape);
     }
 
     public static List<String> forShape(String shape) {
@@ -73,6 +93,16 @@ public final class PotPatterns {
     /** Pattern texture id, e.g. {@code docheio:block/patterns/pot_jug/pot_jug_pattern_rim_blocks}. */
     public static ResourceLocation texture(String shape, String pattern) {
         return docheioPath("block/patterns/" + shape + "/" + modelName(shape, pattern));
+    }
+
+    /** e.g. {@code ("pot_amphora","upper","neck_stitch")} to {@code "pot_amphora_upper_pattern_neck_stitch"}. */
+    public static String halfModelName(String shape, String half, String pattern) {
+        return shape + "_" + half + "_pattern_" + pattern;
+    }
+
+    /** Half-specific overlay model id for a multi-block shape (see {@link #MULTIBLOCK}). */
+    public static ResourceLocation halfModelId(String shape, String half, String pattern) {
+        return docheioPath("block/pattern/" + halfModelName(shape, half, pattern));
     }
 
     // --- color-suffix stripping ------------------------------------------------

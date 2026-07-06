@@ -1,0 +1,8 @@
+{
+  "parent": "docheio:block/templates/pot_amphora_lower",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "docheio:block/patterns/pot_amphora/pot_amphora_pattern_chevron",
+    "particle": "docheio:block/patterns/pot_amphora/pot_amphora_pattern_chevron"
+  }
+}

@@ -29,7 +29,9 @@ public class BlockEntityRegistry {
                     BlockRegistry.POT_PLANTER_SMALL_MAP,
                     BlockRegistry.POT_SMALL_MAP,
                     BlockRegistry.POT_TALL_MAP,
-                    BlockRegistry.POT_VASE_MAP)).build(null));
+                    BlockRegistry.POT_VASE_MAP,
+                    BlockRegistry.POT_AMPHORA_MAP,
+                    BlockRegistry.POT_VASE_LARGE_MAP)).build(null));
 
     @Mod.EventBusSubscriber(modid = PotsMod.DOCHEIO, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ClientOnly {

@@ -29,18 +29,34 @@ public class DocheioPatternModels extends BlockModelProvider {
 
     @Override
     protected void registerModels() {
-        for (Map.Entry<String, List<String>> shape : PotPatterns.BY_SHAPE.entrySet()) {
-            for (String pattern : shape.getValue()) {
-                String model = PotPatterns.modelName(shape.getKey(), pattern);
-                // Full "block/pattern/..." path: BlockModelProvider only prepends its
-                // "block/" folder when the name has no slash, and PotClientModelEvents /
-                // the overlay ids both resolve models under block/pattern/.
-                withExistingParent("block/pattern/" + model, docheioPath("block/templates/" + shape.getKey()))
-                        .texture("all", PotPatterns.texture(shape.getKey(), pattern))
-                        .texture("particle", PotPatterns.texture(shape.getKey(), pattern))
-                        .renderType("minecraft:cutout");
+        for (Map.Entry<String, List<String>> entry : PotPatterns.BY_SHAPE.entrySet()) {
+            String shape = entry.getKey();
+            for (String pattern : entry.getValue()) {
+                if (PotPatterns.isMultiblock(shape)) {
+                    // Two overlays per pattern: each half inherits its own template
+                    // (_lower/_upper) but samples the same shared pattern texture.
+                    for (String half : PotPatterns.HALVES) {
+                        overlay(PotPatterns.halfModelName(shape, half, pattern),
+                                "block/templates/" + shape + "_" + half,
+                                PotPatterns.texture(shape, pattern));
+                    }
+                } else {
+                    overlay(PotPatterns.modelName(shape, pattern),
+                            "block/templates/" + shape,
+                            PotPatterns.texture(shape, pattern));
+                }
             }
         }
+    }
+
+    private void overlay(String model, String parentTemplate, net.minecraft.resources.ResourceLocation texture) {
+        // Full "block/pattern/..." path: BlockModelProvider only prepends its "block/"
+        // folder when the name has no slash, and PotClientModelEvents / the overlay ids
+        // both resolve models under block/pattern/.
+        withExistingParent("block/pattern/" + model, docheioPath(parentTemplate))
+                .texture("all", texture)
+                .texture("particle", texture)
+                .renderType("minecraft:cutout");
     }
 
     @Nonnull
