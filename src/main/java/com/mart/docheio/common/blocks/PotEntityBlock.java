@@ -2,7 +2,6 @@ package com.mart.docheio.common.blocks;
 
 import com.mart.docheio.common.blockentity.PotBlockEntity;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
