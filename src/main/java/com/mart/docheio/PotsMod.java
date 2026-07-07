@@ -18,6 +18,7 @@ import org.apache.logging.log4j.Logger;
 import static com.mart.docheio.common.registry.blocks.BlockRegistry.BLOCKS;
 import static com.mart.docheio.common.registry.entity.BlockEntityRegistry.BLOCK_ENTITY_TYPES;
 import static com.mart.docheio.common.registry.item.DocheioItems.ITEMS;
+import static com.mart.docheio.common.registry.menu.MenuRegistry.MENU_TYPES;
 
 @Mod(PotsMod.DOCHEIO)
 public class PotsMod {
@@ -33,6 +34,7 @@ public class PotsMod {
         BLOCKS.register(modBus);
         ITEMS.register(modBus);
         BLOCK_ENTITY_TYPES.register(modBus);
+        MENU_TYPES.register(modBus);
 
         modBus.addListener(DataOnly::gatherData);
     }
