@@ -18,9 +18,9 @@ public class PotteryWheelScreen extends AbstractContainerScreen<PotteryWheelMenu
 
     public PotteryWheelScreen(PotteryWheelMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
-        // Background occupies 0,0 -> 175,165 of the texture.
+        // Background occupies 0,0 -> 175,175 of the texture.
         this.imageWidth = 176;
-        this.imageHeight = 166;
+        this.imageHeight = 176;
     }
 
     @Override
